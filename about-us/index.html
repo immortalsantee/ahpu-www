@@ -3,158 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aphu App - About Us</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
+  <title>About Us — Ahpu Restaurant POS</title>
+  <meta name="description" content="Learn about Ahpu — Nepal's leading restaurant POS and billing software by Cyclone Nepal Info Tech Pvt. Ltd.">
+  <link rel="icon" href="../img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #333;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a56db; --blue-dark: #1e40af; --amber: #f59e0b;
+      --dark: #0f172a; --dark2: #1e293b; --muted: #64748b;
+      --light: #f8fafc; --border: #e2e8f0; --white: #ffffff;
     }
-    .navbar {
-      background: #007bff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-brand {
-      font-weight: 600;
-      color: #fff !important;
-    }
-    .navbar-nav .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-    }
-    .about-section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 40px;
-      margin: 100px auto;
-      max-width: 1200px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .about-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #007bff;
-    }
-    .about-section h6 {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 40px;
-    }
-    .about-section h4 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #007bff;
-    }
-    .about-section p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.8;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .contact-form button {
-      background: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .footer {
-      background: #007bff;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+    .nav-logo-icon { width: 38px; height: 38px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon i { color: #fff; font-size: 18px; }
+    .nav-logo-text { font-size: 1.35rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .nav-logo-text span { color: var(--amber); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .6rem 1.25rem; border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s; border: none; }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.2); }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: .5rem; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; }
+
+    .page-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 8rem 1.5rem 4rem; text-align: center; }
+    .page-hero h1 { font-size: 2.8rem; font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.1rem; color: rgba(255,255,255,.6); max-width: 560px; margin: 0 auto; }
+    .tag { display: inline-block; background: rgba(245,158,11,.15); color: var(--amber); padding: .3rem .9rem; border-radius: 20px; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 1rem; }
+
+    .about-content { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+    .about-grid h2 { font-size: 2rem; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .about-grid p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .value-card { background: var(--light); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .value-icon { width: 52px; height: 52px; background: rgba(26,86,219,.1); color: var(--blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
+    .value-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: .5rem; }
+    .value-card p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
+
+    .team-section { background: var(--light); padding: 5rem 1.5rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 3rem auto 0; }
+
+    .section-title { font-size: 2rem; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; }
+    .text-center { text-align: center; }
+
+    .cta-section { background: linear-gradient(135deg, var(--blue) 0%, #4f46e5 100%); padding: 5rem 1.5rem; text-align: center; }
+    .cta-section h2 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,.75); margin-bottom: 2rem; }
+    .btn-white { background: #fff; color: var(--blue); font-weight: 700; padding: .875rem 2rem; font-size: 1rem; border-radius: 10px; }
+    .btn-white:hover { background: var(--light); }
+
+    footer { background: var(--dark2); padding: 2rem 1.5rem; text-align: center; }
+    footer p { color: rgba(255,255,255,.35); font-size: .85rem; }
+    footer a { color: rgba(255,255,255,.5); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-ghost { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Aphu App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/support">Support</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/kds-policy">Privacy Policy</a>
-          </li>
-        </ul>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../img/ahpu-logo.png" alt="Ahpu" style="height:42px;width:auto;background:#fff;border-radius:8px;padding:3px 8px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#pos">POS</a></li>
+      <li><a href="/#reports">Reports</a></li>
+      <li><a href="/#clients">Clients</a></li>
+      <li><a href="/about-us" class="active">About</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+    <div style="display:flex;gap:.75rem;">
+      <a href="/support" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:info@ahpuapp.com" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <span class="tag">Our Story</span>
+  <h1>About Ahpu</h1>
+  <p>Built by restaurateurs, for restaurateurs. Ahpu is Nepal's most complete restaurant management platform.</p>
+</div>
+
+<div class="about-content">
+  <div class="about-grid">
+    <div>
+      <span class="tag">Our Vision</span>
+      <h2>Transforming How Nepal's Restaurants Operate</h2>
+      <p>We believe every restaurant in Nepal deserves access to world-class technology — not just the big chains. Ahpu was born from a simple idea: give every restaurant owner the tools to run a smarter, more profitable business.</p>
+      <p>Our vision is to be the operating system for Nepal's hospitality industry — the one platform that handles billing, kitchen, inventory, marketing, and analytics under one roof.</p>
+      <p>We combine deep local knowledge (Nepali fiscal year, IRD compliance, Fonepay, eSewa) with modern software design to deliver something that just works, every day.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+      <h3>Why Ahpu?</h3>
+      <p>Nepal's restaurant industry was underserved by generic billing software that didn't understand local needs — BS calendar, IRD reporting, Fonepay QR, and the unique workflows of Nepali dining culture.</p>
+      <p>We built Ahpu to fill that gap — a solution that speaks your language, follows your rules, and grows with your business.</p>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>To empower every restaurant, cafe, and hospitality business in Nepal with tools that reduce manual work, eliminate billing errors, and provide the clarity needed to make confident business decisions.</p>
+      <p>We do this by listening to our clients constantly, shipping improvements fast, and keeping our software reliable every single day.</p>
+    </div>
+    <div>
+      <span class="tag">Our Mission</span>
+      <h2>Technology That Serves Your Business 24/7</h2>
+      <p>From a busy Friday night service to month-end tax reporting, Ahpu is designed to be the system you never have to worry about. Reliable, fast, and always improving.</p>
+      <p>We provide hands-on onboarding, responsive support, and continuous updates based on real feedback from real restaurants — because we know your business never stops.</p>
+    </div>
+  </div>
+</div>
+
+<div class="team-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="text-center">
+      <span class="tag">Our Values</span>
+      <h2 class="section-title">What Drives Us Every Day</h2>
+      <p class="section-sub" style="max-width:500px;margin:0 auto;">These are the principles that guide every feature we build and every client we serve.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Speed & Reliability</h3>
+        <p>Your POS should never slow down your service. We obsess over performance so your team can focus on what matters — the customer.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(245,158,11,.1);color:var(--amber);"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Local Understanding</h3>
+        <p>We built Ahpu for Nepal — with Nepali fiscal years, IRD compliance, Fonepay QR, and support in your timezone.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon" style="background:rgba(16,185,129,.1);color:#10b981;"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Continuous Improvement</h3>
+        <p>We ship updates regularly based on real client feedback. If it makes your work easier, it's on our roadmap.</p>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
 
-  <!-- About Us Section -->
-  <section class="about-section">
-    <div class="container">
-      <div class="heading text-center">
-        <h2><span>About</span> Us</h2>
-        <h6>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</h6>
-      </div>
-      <div class="row mt-5">
-        <div class="col-md-6">
-          <h4><span>Our</span> Vision</h4>
-          <p>
-            Our vision is to create a restaurant management system that is easy to use and professional in appearance. We believe that this will make it more appealing to customers and staff alike, and will ultimately lead to a more successful business.
-          </p>
-          <p>
-            We plan to achieve this vision by using a user-friendly interface, a professional design, and excellent customer support. We will also use a cloud-based system, integrate with other systems, and use analytics to make our system even more efficient.
-          </p>
-          <p>
-            We believe that our vision is achievable, and we are committed to making it a reality. We are confident that our restaurant management system will be a valuable asset to any business.
-          </p>
-        </div>
-        <div class="col-md-6">
-          <h4><span>Our</span> Mission</h4>
-          <p>
-            Our mission is to provide restaurant owners and operators with the tools and resources they need to run their businesses more efficiently and effectively. We believe that by providing our customers with a comprehensive suite of software solutions, we can help them to improve their bottom line, increase customer satisfaction, and create a more positive work environment for their employees.
-          </p>
-          <p>
-            We are confident that our mission statement will guide us in our efforts to become the leading provider of restaurant management systems in the world.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="cta-section">
+  <h2>Ready to Get Started?</h2>
+  <p>Let's show you how Ahpu can transform your restaurant operations.</p>
+  <a href="mailto:info@ahpuapp.com" class="btn btn-white"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
+</div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2023 Aphu App. All rights reserved. | <a href="#">Privacy Policy</a></p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<footer>
+  <p>&copy; 2025 Cyclone Nepal Info Tech Pvt. Ltd. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/support">Support</a> | Lagankhel, Lalitpur, Nepal</p>
+</footer>
 </body>
 </html>

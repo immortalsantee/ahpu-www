@@ -1,118 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aphu App - Support</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-    }
-    .navbar {
-      background: #007bff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-brand {
-      font-weight: 600;
-      color: #fff !important;
-    }
-    .navbar-nav .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-    }
-    .support-section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 40px;
-      margin: 100px auto;
-      max-width: 800px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .support-section h1 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #007bff;
-    }
-    .support-section p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 15px;
-    }
-    .support-section a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    .support-section a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      background: #007bff;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support & Contact — Ahpu</title>
+<meta name="description" content="Get help with Ahpu restaurant POS: WhatsApp, phone and email support, setup help, Fonepay, printers, IRD billing, accounting and Ahpu AI.">
+<meta name="theme-color" content="#070a14">
+<link rel="icon" href="../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070a14;--bg2:#0b1020;--card:#0f1528;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--text:#e8ecf6;--muted:#9aa4bd;--dim:#6b7590;--cyan:#22c3ee;--violet:#8b5cf6;--pink:#d946ef;--amber:#fbbf24;--green:#34d399;--red:#f87171;--grad:linear-gradient(110deg,#22c3ee 0%,#6d8cff 40%,#a46bf5 70%,#d946ef 100%);--display:'Sora',system-ui,sans-serif}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.i{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.grad-text{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.35rem;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn-main{background:var(--grad);background-size:150% auto;color:#fff;box-shadow:0 8px 30px -8px rgba(139,92,246,.7)}
+.btn-main:hover{transform:translateY(-2px);background-position:right center}
+.btn-glass{background:rgba(255,255,255,.05);border-color:var(--line2);color:var(--text)}
+.btn-glass:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-white{background:#fff;color:#0b1020}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-lg{padding:1rem 1.6rem;font-size:1rem;border-radius:14px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled,.nav.open{background:rgba(7,10,20,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:.25rem;list-style:none}
+.nav-links a{display:block;padding:.5rem .85rem;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{display:flex;gap:.6rem}.nav-cta .btn{padding:.6rem 1.1rem;font-size:.88rem}
+.burger{display:none;background:none;border:0;color:#fff;padding:.5rem;cursor:pointer}.burger .i{width:26px;height:26px}
+.mobile-menu{display:none}
+
+/* hero */
+.hero{position:relative;padding:150px 0 70px;overflow:hidden;isolation:isolate;text-align:center}
+.aurora{position:absolute;inset:-30% -10% auto;height:130%;z-index:-2;pointer-events:none}
+.aurora span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45}
+.aurora span:nth-child(1){width:460px;height:460px;background:#1d6fe0;left:10%;top:10%;animation:drift1 18s ease-in-out infinite}
+.aurora span:nth-child(2){width:420px;height:420px;background:#7c3aed;right:10%;top:0;animation:drift2 22s ease-in-out infinite}
+@keyframes drift1{50%{transform:translate(120px,60px) scale(1.1)}}
+@keyframes drift2{50%{transform:translate(-100px,90px) scale(.9)}}
+.grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 20%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 20%,#000 30%,transparent 75%)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b9a6ff;margin-bottom:1rem}
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--grad)}
+.hero h1{font-family:var(--display);font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.035em;font-weight:800;color:#fff;margin-bottom:1rem}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:600px;margin:0 auto}
+.status{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.6rem;font-size:.84rem;color:#c6cde0;padding:.45rem .9rem;border:1px solid var(--line2);border-radius:999px;background:rgba(255,255,255,.04)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+
+/* contact cards */
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cc{position:relative;display:flex;flex-direction:column;gap:.35rem;padding:22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));text-decoration:none;transition:border-color .25s,transform .25s;overflow:hidden}
+.cc:hover{border-color:rgba(139,92,246,.4);transform:translateY(-3px)}
+.cc.main{border-color:rgba(52,211,153,.35);background:linear-gradient(180deg,rgba(52,211,153,.1),rgba(52,211,153,.02))}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line2);margin-bottom:.6rem}
+.ico .i{width:22px;height:22px}
+.c-cyan{color:var(--cyan);background:rgba(34,195,238,.1)}.c-violet{color:#a78bfa;background:rgba(139,92,246,.12)}.c-pink{color:#e879f9;background:rgba(217,70,239,.12)}.c-amber{color:var(--amber);background:rgba(251,191,36,.1)}.c-green{color:var(--green);background:rgba(52,211,153,.1)}.c-red{color:var(--red);background:rgba(248,113,113,.1)}
+.cc h3{font-size:1rem;font-weight:600;color:#fff}
+.cc small{color:var(--muted);font-size:.84rem}
+.cc strong{margin-top:.4rem;font-weight:600;color:#fff;font-size:.95rem;display:flex;align-items:center;gap:.4rem}
+.cc .go{position:absolute;top:22px;right:22px;color:var(--dim);transition:transform .25s,color .25s}
+.cc:hover .go{transform:translateX(3px);color:#fff}
+
+section{padding:90px 0}
+.h2{font-family:var(--display);font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.12;letter-spacing:-.03em;font-weight:700;color:#fff;margin-bottom:.8rem}
+.lead{color:var(--muted);font-size:1.02rem;max-width:620px}
+.center{text-align:center}.center .lead{margin:0 auto}
+.head{margin-bottom:40px}
+
+/* quick help */
+.topics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tp{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(255,255,255,.025);transition:border-color .25s,background .25s}
+.tp:hover{border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.05)}
+.tp .ico{width:38px;height:38px;border-radius:10px}.tp .ico .i{width:19px;height:19px}
+.tp h4{color:#fff;font-size:.98rem;font-weight:600;margin:4px 0}
+.tp p{color:var(--muted);font-size:.87rem}
+.kbd{font-family:ui-monospace,Menlo,monospace;font-size:.72rem;padding:.05rem .4rem;border:1px solid var(--line2);border-radius:5px;color:#c6cde0;background:rgba(255,255,255,.05)}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq-side{position:sticky;top:100px}
+.faq-side .btn{margin-top:1.4rem}
+.faq{display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);transition:border-color .25s,background .25s}
+details[open]{border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.05)}
+summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-weight:600;color:#fff;font-size:.97rem}
+summary::-webkit-details-marker{display:none}
+summary .pm{width:26px;height:26px;border-radius:8px;border:1px solid var(--line2);display:grid;place-items:center;flex-shrink:0;transition:transform .3s,background .3s}
+details[open] summary .pm{transform:rotate(45deg);background:var(--grad);border-color:transparent}
+details .ans{padding:0 20px 18px;color:var(--muted);font-size:.93rem;animation:fade .35s ease both}
+details .ans b{color:#d5dbea;font-weight:600}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}}
+
+/* hours */
+.hours{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hc{border:1px solid var(--line);border-radius:20px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent)}
+.hc h4{color:#fff;font-weight:600;margin-bottom:.3rem}
+.hc p{color:var(--muted);font-size:.9rem}
+.hc p b{color:#fff;font-weight:600}
+
+/* cta + footer */
+.cta{border-radius:32px;padding:70px 40px;text-align:center;position:relative;overflow:hidden;isolation:isolate;border:1px solid var(--line2)}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 300px at 20% 0%,rgba(34,195,238,.35),transparent 60%),radial-gradient(600px 320px at 80% 100%,rgba(217,70,239,.35),transparent 60%),linear-gradient(135deg,#141a3a,#1c1240)}
+.cta h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:1rem}
+.cta p{color:#c6cde0;max-width:520px;margin:0 auto 2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+footer{border-top:1px solid var(--line);padding:40px 0 30px;margin-top:90px}
+.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.86rem;color:var(--dim);align-items:center}
+.f-bot div{display:flex;gap:1.4rem;flex-wrap:wrap}
+.f-bot a{color:var(--dim);text-decoration:none}.f-bot a:hover{color:#fff}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in,.no-js .rv{opacity:1;transform:none}
+
+@media (max-width:1000px){.contacts{grid-template-columns:1fr 1fr}.topics{grid-template-columns:1fr 1fr}.faq-grid{grid-template-columns:minmax(0,1fr);gap:28px}.faq-side{position:static}}
+@media (max-width:860px){
+  .nav-links,.nav-cta{display:none}.burger{display:block}
+  .mobile-menu{position:fixed;top:72px;left:0;right:0;background:rgba(7,10,20,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 20px 22px;flex-direction:column;gap:4px;z-index:99}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:.8rem .4rem;color:#d5dbea;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:12px;border:0}
+}
+@media (max-width:640px){
+  .hero{padding:120px 0 50px}section{padding:70px 0}
+  .contacts,.topics,.hours{grid-template-columns:1fr}
+  .cta{padding:50px 22px;border-radius:24px}
+  .actions .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Aphu App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about-us">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Support</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/kds-policy">Privacy Policy</a>
-          </li>
-        </ul>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21h3M21 17v4"/></symbol>
+  <symbol id="i-cmd" viewBox="0 0 24 24"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Ahpu home"><picture><source srcset="../img/ahpu-logo-mark.webp" type="image/webp"><img src="../img/ahpu-logo-mark.png" alt="Ahpu" width="82" height="38"></picture></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#ai">Ahpu AI</a></li>
+      <li><a href="/#accounting">Accounting</a></li>
+      <li><a href="/#payments">Payments</a></li>
+      <li><a href="/#clients">Clients</a></li>
+      <li><a href="/support" class="on">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/about-us" class="btn btn-glass">About</a>
+      <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Book a demo</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="/">Home</a><a href="/#features">Features</a><a href="/#ai">Ahpu AI</a><a href="/#accounting">Accounting</a><a href="/#payments">Payments</a><a href="/about-us">About</a><a href="/support">Support</a>
+  <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Chat on WhatsApp</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><span></span><span></span></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Support</span>
+    <h1 class="rv" style="--d:.06s">Real people,<br><span class="grad-text">ready to help.</span></h1>
+    <p class="rv" style="--d:.12s">Questions about setup, printers, Fonepay, IRD billing or your books? Message us. The team that builds Ahpu is the team that answers.</p>
+    <div class="status rv" style="--d:.18s"><i class="pulse"></i> <span id="openNow">Support team available Mon – Fri, 9 AM – 5 PM NPT</span></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="contacts">
+    <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="cc main rv">
+      <svg class="i go"><use href="#i-arrow"/></svg>
+      <div class="ico c-green"><svg class="i"><use href="#i-msg"/></svg></div>
+      <h3>WhatsApp</h3><small>Fastest way to reach us. Send a screenshot of the problem.</small>
+      <strong>Chat now</strong>
+    </a>
+    <a href="tel:+9779802046069" class="cc rv" style="--d:.06s">
+      <svg class="i go"><use href="#i-arrow"/></svg>
+      <div class="ico c-violet"><svg class="i"><use href="#i-phone"/></svg></div>
+      <h3>Phone</h3><small>Mon – Fri, 9 AM – 5 PM NPT</small>
+      <strong>+977-9802046069</strong>
+    </a>
+    <a href="mailto:info@ahpuapp.com" class="cc rv" style="--d:.12s">
+      <svg class="i go"><use href="#i-arrow"/></svg>
+      <div class="ico c-cyan"><svg class="i"><use href="#i-mail"/></svg></div>
+      <h3>Email</h3><small>For quotes, invoices and longer questions.</small>
+      <strong>info@ahpuapp.com</strong>
+    </a>
+    <a href="https://maps.google.com/?q=Lagankhel,Lalitpur" target="_blank" rel="noopener" class="cc rv" style="--d:.18s">
+      <svg class="i go"><use href="#i-arrow"/></svg>
+      <div class="ico c-amber"><svg class="i"><use href="#i-pin"/></svg></div>
+      <h3>Office</h3><small>Ahpu Solution Pvt. Ltd.</small>
+      <strong>Lagankhel, Lalitpur</strong>
+    </a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Quick help</span>
+      <h2 class="h2">Try these first.</h2>
+      <p class="lead">Most day-to-day questions can be answered in a few seconds, without leaving your Ahpu screen.</p>
+    </div>
+    <div class="topics">
+      <div class="tp rv"><div class="ico c-pink"><svg class="i"><use href="#i-spark"/></svg></div><h4>Ask Ahpu AI</h4><p>Press <span class="kbd">Ctrl</span> + <span class="kbd">/</span> (<span class="kbd">⌘</span> + <span class="kbd">/</span> on Mac) and ask in English or Nepali. Staff on the mobile app can use AI Support.</p></div>
+      <div class="tp rv" style="--d:.06s"><div class="ico c-violet"><svg class="i"><use href="#i-cmd"/></svg></div><h4>Find any page fast</h4><p>Press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to search pages, reports and accounting. Your last 10 pages show first.</p></div>
+      <div class="tp rv" style="--d:.12s"><div class="ico c-amber"><svg class="i"><use href="#i-printer"/></svg></div><h4>Printer not printing?</h4><p>Check the printer is on the same network and the Printer Service Bridge is running. The Print-Fail Log shows what didn't print.</p></div>
+      <div class="tp rv"><div class="ico c-cyan"><svg class="i"><use href="#i-qr"/></svg></div><h4>Fonepay payment missing?</h4><p>Open the order and use Reconcile to fetch the payment. If the amount doesn't match the bill, Ahpu won't create the bill automatically.</p></div>
+      <div class="tp rv" style="--d:.06s"><div class="ico c-green"><svg class="i"><use href="#i-db"/></svg></div><h4>Backups</h4><p>Database backups run automatically. Super admins can check the backup log and server information under Statutory Reports.</p></div>
+      <div class="tp rv" style="--d:.12s"><div class="ico c-red"><svg class="i"><use href="#i-lock"/></svg></div><h4>Need us to look in?</h4><p>A super admin can create a temporary access link, so our team can help without you sharing a password.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2">Frequently asked questions</h2>
+      <p class="lead">Can't find your answer? Send us a message on WhatsApp and we'll reply as soon as we can.</p>
+      <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Ask on WhatsApp <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="faq rv" style="--d:.08s">
+      <details open><summary>How do I get started with Ahpu? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Message or call us and we'll set up a demo with your own menu. After that, we load your items, tables, printers and users and train your staff. Setup usually takes <b>1–2 days</b>.</div></details>
+      <details><summary>Does Ahpu work with Fonepay and eSewa? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Yes. Each order gets its own <b>Fonepay dynamic QR</b>, and the bill is created automatically when the right amount arrives. eSewa, cash, card, bank, credit, customer wallet and split payments are supported too.</div></details>
+      <details><summary>Is Ahpu ready for Nepal's IRD rules? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Yes. Ahpu supports IRD-certified billing, the abbreviated tax invoice, sales register and sales return books, and the <b>VAT return in the new IRD portal layout</b>. It handles 13% VAT correctly on mixed bills and uses the Nepali fiscal year and BS calendar.</div></details>
+      <details><summary>Does it include accounting? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Yes. Ahpu has full double-entry accounting. Bills, payments, returns and voids <b>post to the journal automatically</b>. You get ledgers, a trial balance, a balance sheet, an income statement, opening balances and fiscal year close.</div></details>
+      <details><summary>What is Ahpu AI and is it safe? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Ahpu AI is an assistant built into the app. It can open pages, save expenses, add customers and items, and draft bills, purchases and journal entries. It always <b>shows you a preview before saving</b>, uses the same checks as the normal forms, and every question and answer is logged.</div></details>
+      <details><summary>Can I use Ahpu on a tablet or phone? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Yes. The POS and the active order screens work on desktop, tablet and phone. There's also an Android <b>waiter app</b>, a <b>KDS app</b> for the kitchen and the <b>Ahpu mobile</b> app for items and stock.</div></details>
+      <details><summary>What if the internet goes down? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Ahpu runs on your local network. Fonts and scripts load from your own server, so you can keep taking orders and billing when the internet is slow. Online features like Fonepay and SMS will pick up again when the connection comes back.</div></details>
+      <details><summary>What happens to my data if something goes wrong? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Database backups run automatically and are logged. The activity log keeps a full record of who did what, so you can always trace a change.</div></details>
+      <details><summary>Do you train our staff? <span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="ans">Yes. We give hands-on training to cashiers, waiters, kitchen staff and managers so everyone is confident from the first day of service.</div></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow">Support hours</span><h2 class="h2">When you can reach us</h2></div>
+    <div class="hours">
+      <div class="hc rv"><div class="ico c-violet"><svg class="i"><use href="#i-clock"/></svg></div><h4>Business hours</h4><p>Mon – Fri<br><b>9:00 AM – 5:00 PM NPT</b></p></div>
+      <div class="hc rv" style="--d:.06s"><div class="ico c-cyan"><svg class="i"><use href="#i-zap"/></svg></div><h4>Response time</h4><p>Email: <b>within 4 hours</b><br>Phone &amp; WhatsApp: <b>right away</b></p></div>
+      <div class="hc rv" style="--d:.12s"><div class="ico c-red"><svg class="i"><use href="#i-shield"/></svg></div><h4>Emergency support</h4><p>Critical issues, such as billing being down, get priority even outside business hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>Not using Ahpu yet?</h2>
+      <p>See it working with your own menu, tables and printers. It takes about 20 minutes.</p>
+      <div class="actions">
+        <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-white btn-lg"><svg class="i"><use href="#i-msg"/></svg> Book a free demo</a>
+        <a href="/" class="btn btn-glass btn-lg">Explore features</a>
       </div>
     </div>
-  </nav>
-
-  <!-- Support Section -->
-  <div class="support-section">
-    <h1>Contact Us</h1>
-    <p><strong>Email:</strong> <a href="mailto:info@ahpuapp.com">info@ahpuapp.com</a></p>
-    <p><strong>Phone:</strong> +977-9803022718</p>
-    <p><strong>Hours:</strong> Mon-Fri, 9:00 AM - 5:00 PM (NPT)</p>
-    <p><strong>Address:</strong> Lagankhel, Nepal</p>
-    <p><strong>Privacy Policy:</strong> <a href="#" target="_blank">Read Here</a></p>
   </div>
+</section>
+</main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2023 Aphu App. All rights reserved. | <a href="#">Privacy Policy</a></p>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap f-bot">
+    <span>&copy; <span id="yr">2025</span> Ahpu Solution Pvt. Ltd. · Lagankhel, Lalitpur, Nepal</span>
+    <div><a href="/">Home</a><a href="/about-us">About</a><a href="/privacy-policy">Privacy</a><a href="/kds-policy">KDS policy</a></div>
+  </div>
+</footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  var d=document;d.body.classList.remove('no-js');
+  d.getElementById('yr').textContent=new Date().getFullYear();
+  var nav=d.getElementById('nav'),menu=d.getElementById('mobileMenu'),burger=d.getElementById('burger');
+  var onScroll=function(){nav.classList.toggle('scrolled',scrollY>20)};addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var setMenu=function(o){menu.classList.toggle('open',o);nav.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.innerHTML='<svg class="i"><use href="#i-'+(o?'x':'menu')+'"/></svg>'};
+  burger.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  d.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  /* one FAQ open at a time */
+  var ds=d.querySelectorAll('details');ds.forEach(function(x){x.addEventListener('toggle',function(){if(x.open)ds.forEach(function(y){if(y!==x)y.open=false})})});
+  /* live open/closed status in Nepal time (UTC+5:45) */
+  var now=new Date(Date.now()+(new Date().getTimezoneOffset()+345)*60000),day=now.getDay(),mins=now.getHours()*60+now.getMinutes();
+  var open=day>=1&&day<=5&&mins>=540&&mins<1020;
+  d.getElementById('openNow').textContent=open?'Support team is online now':'Outside office hours · WhatsApp us and we’ll reply soon';
+  if(!open)d.querySelector('.pulse').style.background='#fbbf24';
+})();
+</script>
 </body>
 </html>

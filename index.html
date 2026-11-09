@@ -1,323 +1,1157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aphu App - Home</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-    }
-    .navbar {
-      background: #007bff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-brand {
-      font-weight: 600;
-      color: #fff !important;
-    }
-    .navbar-nav .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-    }
-    .hero-section {
-      background: linear-gradient(135deg, #007bff, #00bfff);
-      color: #fff;
-      padding: 100px 0;
-      text-align: center;
-    }
-    .hero-section h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero-section p {
-      font-size: 18px;
-      margin-bottom: 40px;
-    }
-    .client-section {
-      padding: 60px 0;
-    }
-    .client-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .client-card:hover {
-      transform: translateY(-10px);
-    }
-    .client-card img {
-      max-width: 100px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .client-card h5 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .client-card p {
-      font-size: 14px;
-      color: #666;
-    }
-    .footer {
-      background: #007bff;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahpu — Restaurant POS, Kitchen, Inventory & Accounting in One</title>
+<meta name="description" content="Ahpu is Nepal's complete restaurant system: fast POS, kitchen display, inventory, Fonepay QR payments, IRD-ready billing, full double-entry accounting and an AI assistant that understands English and Nepali. Trusted by 50+ restaurants.">
+<meta name="theme-color" content="#070a14">
+<meta property="og:title" content="Ahpu — Run your whole restaurant from one screen">
+<meta property="og:description" content="POS, KDS, inventory, Fonepay, IRD billing, accounting and Ahpu AI — in one system.">
+<meta property="og:image" content="https://ahpuapp.com/img/ahpu-logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070a14;--bg2:#0b1020;--bg3:#111830;--card:#0f1528;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --text:#e8ecf6;--muted:#9aa4bd;--dim:#6b7590;
+  --cyan:#22c3ee;--blue:#3b82f6;--violet:#8b5cf6;--pink:#d946ef;--amber:#fbbf24;--green:#34d399;--red:#f87171;
+  --grad:linear-gradient(110deg,#22c3ee 0%,#6d8cff 40%,#a46bf5 70%,#d946ef 100%);
+  --radius:20px;
+  --display:'Sora',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.i{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.grad-text{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.35rem;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;white-space:nowrap}
+.btn-main{background:var(--grad);background-size:150% auto;color:#fff;box-shadow:0 8px 30px -8px rgba(139,92,246,.7)}
+.btn-main:hover{transform:translateY(-2px);background-position:right center;box-shadow:0 14px 40px -8px rgba(139,92,246,.85)}
+.btn-glass{background:rgba(255,255,255,.05);border-color:var(--line2);color:var(--text)}
+.btn-glass:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-lg{padding:1rem 1.6rem;font-size:1rem;border-radius:14px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(7,10,20,.72);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:.25rem;list-style:none}
+.nav-links a{display:block;padding:.5rem .85rem;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s,background .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{display:flex;gap:.6rem}
+.nav-cta .btn{padding:.6rem 1.1rem;font-size:.88rem}
+.burger{display:none;background:none;border:0;color:#fff;padding:.5rem;cursor:pointer}
+.burger .i{width:26px;height:26px}
+.mobile-menu{display:none}
+
+/* hero */
+.hero{position:relative;padding:150px 0 90px;overflow:hidden;isolation:isolate}
+.aurora{position:absolute;inset:-20% -10% auto;height:120%;z-index:-2;pointer-events:none}
+.aurora span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;will-change:transform}
+.aurora span:nth-child(1){width:520px;height:520px;background:#1d6fe0;left:5%;top:5%;animation:drift1 18s ease-in-out infinite}
+.aurora span:nth-child(2){width:460px;height:460px;background:#7c3aed;right:8%;top:0;animation:drift2 22s ease-in-out infinite}
+.aurora span:nth-child(3){width:380px;height:380px;background:#c026d3;left:45%;top:35%;opacity:.35;animation:drift3 20s ease-in-out infinite}
+@keyframes drift1{50%{transform:translate(120px,60px) scale(1.1)}}
+@keyframes drift2{50%{transform:translate(-100px,90px) scale(.9)}}
+@keyframes drift3{50%{transform:translate(-80px,-60px) scale(1.15)}}
+.grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%)}
+.hero-in>*,.split>*,.bento>*,.ird>*{min-width:0}
+.hero-in{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:.6rem;padding:.35rem .45rem .35rem .4rem;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line2);font-size:.82rem;color:var(--muted);text-decoration:none;transition:border-color .2s,background .2s}
+.pill:hover{border-color:rgba(139,92,246,.6);background:rgba(139,92,246,.08)}
+.pill b{background:var(--grad);color:#fff;padding:.2rem .6rem;border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+.hero h1{font-family:var(--display);font-size:clamp(2.4rem,5.2vw,4.1rem);line-height:1.06;letter-spacing:-.035em;font-weight:800;margin:1.4rem 0 1.25rem;color:#fff}
+.hero-sub{font-size:clamp(1rem,1.4vw,1.15rem);color:var(--muted);max-width:540px;margin-bottom:2rem}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-trust{display:flex;align-items:center;flex-wrap:wrap;gap:1rem 1.4rem;margin-top:2.2rem;color:var(--muted);font-size:.86rem}
+.hero-trust span{display:inline-flex;align-items:center;gap:.45rem}
+.hero-trust .i{color:var(--green)}
+
+/* hero app mock */
+.stage{position:relative;perspective:1600px}
+.app{position:relative;background:linear-gradient(180deg,rgba(20,27,50,.92),rgba(12,17,34,.95));border:1px solid var(--line2);border-radius:22px;padding:14px;box-shadow:0 40px 100px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset,0 0 80px -20px rgba(139,92,246,.35);transform:rotateY(-9deg) rotateX(5deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.stage:hover .app{transform:rotateY(0) rotateX(0)}
+.app::before{content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;background:linear-gradient(140deg,rgba(34,195,238,.6),transparent 35%,transparent 65%,rgba(217,70,239,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.app-top{display:flex;align-items:center;gap:.5rem;margin-bottom:12px}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:#2a3350}
+.dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+.app-search{flex:1;margin-left:.5rem;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:.3rem .6rem;font-size:.7rem;color:var(--dim);display:flex;justify-content:space-between}
+.kbd{font-family:ui-monospace,Menlo,monospace;font-size:.65rem;padding:.05rem .35rem;border:1px solid var(--line2);border-radius:5px;color:var(--muted);background:rgba(255,255,255,.04)}
+.live-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:10px}
+.chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.68rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:.25rem .55rem;border-radius:999px}
+.chip b{color:#fff;font-weight:600}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.kpis{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.kpi{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kpi small{display:block;font-size:.64rem;color:var(--dim);margin-bottom:2px}
+.kpi strong{font-family:var(--display);font-size:1.12rem;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.kpi em{display:block;font-style:normal;font-size:.62rem;color:var(--green);margin-top:1px}
+.app-row{display:grid;grid-template-columns:1.5fr 1fr;gap:8px}
+.panel{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.panel h6{font-size:.66rem;font-weight:500;color:var(--dim);margin-bottom:8px;display:flex;justify-content:space-between}
+.bars{display:flex;align-items:flex-end;gap:5px;height:86px}
+.bars i{flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,#8b5cf6,#22c3ee);opacity:.85;height:var(--h);transition:height 1.1s cubic-bezier(.2,.8,.2,1);transform-origin:bottom}
+.bars i.peak{background:linear-gradient(180deg,#f0abfc,#a855f7)}
+.mix{display:flex;height:9px;border-radius:99px;overflow:hidden;margin:4px 0 8px}
+.mix i{height:100%;transition:width 1s}
+.legend{display:grid;gap:4px;font-size:.64rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:.4rem}
+.legend span::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--c)}
+.legend b{margin-left:auto;color:#fff;font-weight:500}
+.sellers{display:grid;gap:5px;margin-top:8px}
+.seller{display:flex;align-items:center;gap:.5rem;font-size:.66rem;color:var(--muted)}
+.seller i{flex:1;height:4px;border-radius:9px;background:rgba(255,255,255,.06);position:relative;overflow:hidden}
+.seller i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--grad);border-radius:9px}
+.float{position:absolute;background:rgba(15,21,40,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line2);border-radius:14px;padding:.7rem .85rem;box-shadow:0 20px 40px -12px rgba(0,0,0,.6);font-size:.72rem;display:flex;gap:.65rem;align-items:center;z-index:2}
+.float .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+.float strong{display:block;color:#fff;font-size:.8rem;font-weight:600}
+.float small{color:var(--muted);font-size:.66rem}
+.f-pay{left:-34px;bottom:46px;animation:bob 5s ease-in-out infinite}
+.f-pay .ic{background:rgba(52,211,153,.15);color:var(--green)}
+.f-ai{right:-26px;top:-24px;animation:bob 6s ease-in-out -2s infinite}
+.f-ai .ic{background:var(--grad);color:#fff}
+.f-kot{right:-18px;bottom:-22px;animation:bob 5.5s ease-in-out -1s infinite}
+.f-kot .ic{background:rgba(251,191,36,.15);color:var(--amber)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.toast-in{animation:toastIn .6s cubic-bezier(.2,.9,.3,1.3) both,bob 5s ease-in-out .6s infinite}
+@keyframes toastIn{from{opacity:0;transform:translateY(16px) scale(.9)}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:rgba(255,255,255,.015);padding:22px 0;overflow:hidden;position:relative}
+.marquee p{text-align:center;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.mq{display:flex;width:max-content;gap:3rem;animation:mq 40s linear infinite}
+.marquee:hover .mq{animation-play-state:paused}
+.mq span{font-family:var(--display);font-weight:600;font-size:1.05rem;color:#7d88a6;white-space:nowrap;display:flex;align-items:center;gap:3rem}
+.mq span::after{content:"✦";color:#3b4566;font-size:.7rem}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:1;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:110px 0;position:relative}
+.cv{}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b9a6ff;margin-bottom:1rem}
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--grad)}
+.h2{font-family:var(--display);font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;color:#fff;margin-bottom:1rem}
+.lead{color:var(--muted);font-size:1.06rem;max-width:620px}
+.center{text-align:center}.center .lead{margin:0 auto}
+.head{margin-bottom:56px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:-30px}
+.stat{background:var(--bg2);padding:30px 24px;text-align:center}
+.stat strong{display:block;font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.stat strong sup{font-size:.55em;vertical-align:.5em}
+.stat>span{color:var(--muted);font-size:.88rem}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{position:relative;grid-column:span 2;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:var(--radius);padding:26px;overflow:hidden;transition:border-color .3s,transform .3s}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,-20%),rgba(139,92,246,.16),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tile:hover{border-color:rgba(139,92,246,.35);transform:translateY(-3px)}
+.tile:hover::before{opacity:1}
+.tile.w3{grid-column:span 3}.tile.w4{grid-column:span 4}
+.tile h3{font-family:var(--display);font-size:1.12rem;font-weight:600;color:#fff;margin:14px 0 6px;letter-spacing:-.01em}
+.tile p{color:var(--muted);font-size:.9rem}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:20px;border:1px solid var(--line2)}
+.ico .i{width:22px;height:22px}
+.c-cyan{color:var(--cyan);background:rgba(34,195,238,.1)}.c-violet{color:#a78bfa;background:rgba(139,92,246,.12)}.c-pink{color:#e879f9;background:rgba(217,70,239,.12)}
+.c-amber{color:var(--amber);background:rgba(251,191,36,.1)}.c-green{color:var(--green);background:rgba(52,211,153,.1)}.c-red{color:var(--red);background:rgba(248,113,113,.1)}.c-blue{color:#60a5fa;background:rgba(59,130,246,.12)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tags span{font-size:.72rem;color:var(--muted);border:1px solid var(--line);background:rgba(255,255,255,.03);padding:.22rem .6rem;border-radius:999px}
+.mini-orders{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.mo{border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(255,255,255,.03);font-size:.7rem;color:var(--muted)}
+.mo b{display:block;color:#fff;font-size:.82rem;font-weight:600}
+.mo i{display:inline-block;margin-top:6px;font-style:normal;font-size:.62rem;padding:.1rem .45rem;border-radius:99px}
+.st-new{background:rgba(96,165,250,.15);color:#93c5fd}.st-cook{background:rgba(251,191,36,.15);color:var(--amber)}.st-ready{background:rgba(52,211,153,.15);color:var(--green)}.st-bill{background:rgba(217,70,239,.15);color:#f0abfc}
+.ledger{margin-top:18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.74rem}
+.ledger div{display:grid;grid-template-columns:1fr 80px 80px;padding:.5rem .8rem;border-bottom:1px solid var(--line);color:var(--muted);font-variant-numeric:tabular-nums}
+.ledger div:last-child{border:0;color:#fff;font-weight:600;background:rgba(139,92,246,.08)}
+.ledger div span:not(:first-child){text-align:right}
+.ledger .hd{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);background:rgba(255,255,255,.02)}
+
+/* split feature */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.split.rev .split-visual{order:-1}
+.checks{list-style:none;display:grid;gap:.85rem;margin-top:1.6rem}
+.checks li{display:flex;gap:.75rem;color:#c6cde0;font-size:.97rem}
+.checks li .i{color:#fff;background:var(--grad);border-radius:50%;padding:3px;width:20px;height:20px;margin-top:2px;stroke-width:3}
+.checks li b{color:#fff;font-weight:600}
+
+/* AI */
+.ai-sec{background:radial-gradient(900px 500px at 80% 40%,rgba(139,92,246,.18),transparent 60%),radial-gradient(700px 400px at 10% 80%,rgba(34,195,238,.1),transparent 60%)}
+.chatwin{background:rgba(12,16,32,.9);border:1px solid var(--line2);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(139,92,246,.15),0 0 120px -30px rgba(139,92,246,.5)}
+.chat-hd{display:flex;align-items:center;gap:.75rem;padding:14px 18px;border-bottom:1px solid var(--line)}
+.orb{width:34px;height:34px;border-radius:50%;background:conic-gradient(from 0deg,#22c3ee,#8b5cf6,#d946ef,#22c3ee);animation:spin 6s linear infinite;position:relative;flex-shrink:0}
+.orb::after{content:"";position:absolute;inset:4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c4b5fd 30%,#6d28d9 75%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chat-hd strong{display:block;color:#fff;font-size:.92rem}
+.chat-hd small{color:var(--dim);font-size:.72rem}
+.chat-hd .kbd{margin-left:auto}
+.chat-body{height:390px;padding:18px;display:flex;flex-direction:column;gap:12px;overflow:hidden;justify-content:flex-end}
+.msg{max-width:86%;font-size:.86rem;padding:.7rem .95rem;border-radius:16px;animation:msgIn .45s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes msgIn{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.msg.u{align-self:flex-end;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-bottom-right-radius:5px}
+.msg.u .i{opacity:.8;margin-right:.35rem}
+.msg.a{align-self:flex-start;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#d5dbea;border-bottom-left-radius:5px}
+.prev{margin-top:.6rem;border:1px solid var(--line2);border-radius:12px;padding:.65rem .75rem;background:rgba(0,0,0,.2);font-size:.78rem;display:grid;gap:.25rem}
+.prev div{display:flex;justify-content:space-between;gap:1rem;color:var(--muted)}
+.prev div b{color:#fff;font-weight:500}
+.prev .acts{display:flex;gap:.4rem;margin-top:.35rem;justify-content:flex-start}
+.prev .acts span{font-size:.72rem;padding:.25rem .7rem;border-radius:8px;border:1px solid var(--line2);color:var(--muted)}
+.prev .acts span:first-child{background:var(--grad);border-color:transparent;color:#fff}
+.ok{color:var(--green);display:flex;align-items:center;gap:.4rem}
+.typing{display:inline-flex;gap:4px;padding:.2rem 0}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.chat-in{display:flex;align-items:center;gap:.6rem;margin:0 14px 14px;padding:.7rem .9rem;border:1px solid var(--line2);border-radius:14px;background:rgba(255,255,255,.03);color:var(--dim);font-size:.82rem}
+.chat-in .mic{margin-left:auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff}
+.lang{display:flex;gap:.5rem;margin-top:1.6rem;flex-wrap:wrap}
+.lang span{font-size:.8rem;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--line2);color:#c6cde0;background:rgba(255,255,255,.03)}
+
+/* POS */
+.pos{background:var(--card);border:1px solid var(--line2);border-radius:24px;padding:18px;box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+.pos-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:.82rem;color:var(--muted)}
+.pos-hd b{color:#fff;font-family:var(--display);font-size:1rem}
+.cats{display:flex;gap:6px;margin-bottom:12px;overflow:hidden}
+.cats span{font-size:.72rem;padding:.3rem .7rem;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.cats span.on{background:#fff;color:#0b1020;border-color:#fff;font-weight:600}
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pi{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:12px;padding:10px;cursor:pointer;text-align:left;color:inherit;font:inherit;transition:transform .15s,border-color .2s,background .2s;position:relative}
+.pi:hover{border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.08)}
+.pi:active{transform:scale(.96)}
+.pi b{display:block;font-size:.78rem;color:#fff;font-weight:600}
+.pi small{font-size:.74rem;color:var(--amber);font-weight:600}
+.pi .q{position:absolute;top:6px;right:6px;min-width:18px;height:18px;border-radius:9px;background:var(--grad);color:#fff;font-size:.62rem;display:none;place-items:center;padding:0 5px;font-weight:700}
+.pi.has .q{display:grid}
+.cart{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:rgba(0,0,0,.2)}
+.cart-lines{min-height:84px;max-height:110px;overflow:hidden;display:grid;align-content:start;gap:4px}
+.cl{display:flex;justify-content:space-between;font-size:.76rem;color:#c6cde0;animation:msgIn .3s both}
+.cl em{font-style:normal;color:var(--dim)}
+.empty{font-size:.76rem;color:var(--dim);padding:.6rem 0}
+.sums{border-top:1px dashed var(--line2);margin-top:8px;padding-top:8px;display:grid;gap:3px;font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.sums div{display:flex;justify-content:space-between}
+.sums .tot{color:#fff;font-weight:700;font-size:.95rem;font-family:var(--display);margin-top:3px}
+.pos-act{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:6px;margin-top:10px}
+.pos-act span{font-size:.74rem;text-align:center;padding:.6rem;border-radius:10px;border:1px solid var(--line2);color:var(--muted)}
+.pos-act span:last-child{background:var(--grad);color:#fff;border:0;font-weight:600}
+.hint{font-size:.74rem;color:var(--dim);text-align:center;margin-top:10px}
+
+/* KDS */
+.kds{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kot{border-radius:16px;padding:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:background .5s,border-color .5s,transform .5s;min-height:170px;display:flex;flex-direction:column}
+.kot-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.kot-h b{color:#fff;font-size:.86rem}
+.kot-h small{color:var(--dim);font-size:.66rem}
+.kot ul{list-style:none;font-size:.76rem;color:#c6cde0;display:grid;gap:3px;flex:1}
+.kot ul em{display:block;font-style:normal;color:var(--amber);font-size:.68rem}
+.kot .st{align-self:flex-start;font-size:.64rem;font-weight:700;letter-spacing:.06em;padding:.2rem .55rem;border-radius:6px;margin-top:8px}
+.kot[data-s="0"]{border-color:rgba(96,165,250,.4);background:rgba(96,165,250,.06)}
+.kot[data-s="1"]{border-color:rgba(251,191,36,.45);background:rgba(251,191,36,.07)}
+.kot[data-s="2"]{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.07)}
+.kot[data-s="0"] .st{background:#3b82f6;color:#fff}.kot[data-s="1"] .st{background:var(--amber);color:#1a1300}.kot[data-s="2"] .st{background:var(--green);color:#03140d}
+.kot.flash{transform:scale(1.03)}
+.kds-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.kds-hd b{font-family:var(--display);color:#fff}
+.stations{display:flex;gap:6px}
+.stations span{font-size:.7rem;padding:.25rem .6rem;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.stations span:first-child{background:rgba(255,255,255,.08);color:#fff}
+
+/* accounting */
+.acc-vis{display:grid;gap:12px}
+.je{background:var(--card);border:1px solid var(--line2);border-radius:18px;padding:16px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+.je-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:1rem}
+.je-hd b{color:#fff;font-family:var(--display);font-size:.95rem}
+.je-hd small{display:block;color:var(--dim);font-size:.72rem}
+.badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.66rem;padding:.2rem .55rem;border-radius:99px;font-weight:600;white-space:nowrap}
+.b-green{background:rgba(52,211,153,.14);color:var(--green)}.b-violet{background:rgba(139,92,246,.16);color:#c4b5fd}
+.tree{background:var(--card);border:1px solid var(--line2);border-radius:18px;padding:14px 16px;font-size:.78rem;font-variant-numeric:tabular-nums}
+.tree div{display:flex;justify-content:space-between;padding:.32rem 0;color:var(--muted);border-bottom:1px dashed var(--line)}
+.tree div:last-child{border:0}
+.tree .g{color:#fff;font-weight:600}
+.tree .s{padding-left:1.1rem}
+.tree .s::before{content:"└ ";color:#3b4566}
+.acc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tiny-card{background:var(--card);border:1px solid var(--line2);border-radius:18px;padding:14px 16px}
+.tiny-card small{color:var(--dim);font-size:.7rem}
+.tiny-card strong{display:block;font-family:var(--display);color:#fff;font-size:1.25rem;margin:.15rem 0}
+.spark{height:34px;width:100%}
+
+/* tabs */
+.tabs{display:flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);width:max-content;max-width:100%;margin:0 auto 34px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:none;color:var(--muted);font:inherit;font-weight:600;font-size:.9rem;padding:.65rem 1.1rem;border-radius:11px;cursor:pointer;display:flex;align-items:center;gap:.5rem;white-space:nowrap;transition:color .2s,background .2s}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{background:#fff;color:#0b1020}
+.panelx{display:none;grid-template-columns:repeat(3,1fr);gap:14px;animation:msgIn .5s both}
+.panelx.on{display:grid}
+.fcard{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(255,255,255,.025);transition:border-color .25s,background .25s}
+.fcard:hover{border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.05)}
+.fcard .ico{width:38px;height:38px;border-radius:10px}
+.fcard .ico .i{width:19px;height:19px}
+.fcard h4{color:#fff;font-size:.98rem;font-weight:600;margin:12px 0 4px}
+.fcard p{color:var(--muted);font-size:.86rem}
+
+/* payments */
+.qr-card{background:var(--card);border:1px solid var(--line2);border-radius:24px;padding:26px;text-align:center;position:relative;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+.qr-card small{color:var(--dim);font-size:.76rem}
+.qr-amt{font-family:var(--display);font-size:2rem;font-weight:700;color:#fff;margin:.2rem 0 1rem;letter-spacing:-.02em}
+.qr-box{width:190px;height:190px;margin:0 auto;background:#fff;border-radius:18px;padding:14px;position:relative;overflow:hidden}
+.qr-box svg{width:100%;height:100%}
+.scan{position:absolute;left:0;right:0;height:46px;top:-46px;background:linear-gradient(180deg,transparent,rgba(139,92,246,.45));border-bottom:2px solid #8b5cf6;animation:scan 2.4s ease-in-out infinite}
+@keyframes scan{to{top:100%}}
+.paid{position:absolute;inset:0;background:rgba(10,30,22,.92);display:grid;place-items:center;opacity:0;transform:scale(1.1);transition:opacity .4s,transform .4s;border-radius:18px}
+.paid div{color:var(--green);font-weight:700;font-size:.95rem}
+.paid .i{width:46px;height:46px;stroke-width:2.5;margin:0 auto .4rem;display:block}
+.qr-card.done .paid{opacity:1;transform:none}
+.qr-card.done .scan{display:none}
+.qr-meta{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+.qr-steps{display:grid;gap:8px;margin-top:16px;text-align:left}
+.qr-steps div{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--dim);transition:color .3s}
+.qr-steps div .i{color:var(--dim);transition:color .3s}
+.qr-steps div.on{color:#e8ecf6}
+.qr-steps div.on .i{color:var(--green)}
+.paym{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.6rem}
+.paym span{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;padding:.5rem .9rem;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:#d5dbea}
+
+/* IRD strip */
+.ird{border:1px solid var(--line2);border-radius:28px;padding:44px;background:linear-gradient(135deg,rgba(34,195,238,.08),rgba(139,92,246,.08) 50%,rgba(217,70,239,.06));display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.ird-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ird-list div{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:#d5dbea;background:rgba(7,10,20,.45);border:1px solid var(--line);border-radius:14px;padding:.8rem .9rem}
+.ird-list .i{color:var(--cyan);margin-top:3px}
+
+/* reports cloud */
+.cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1000px;margin:0 auto}
+.cloud span{font-size:.88rem;padding:.55rem 1rem;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#c6cde0;transition:all .25s;cursor:default}
+.cloud span:hover{border-color:transparent;background:var(--grad);color:#fff;transform:translateY(-2px)}
+.cloud span.hl{border-color:rgba(139,92,246,.4);color:#fff}
+
+/* apps */
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.app-card{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);display:flex;gap:16px;align-items:flex-start;transition:border-color .25s,transform .25s}
+.app-card:hover{border-color:rgba(139,92,246,.35);transform:translateY(-3px)}
+.app-card h4{color:#fff;font-size:1rem;font-weight:600;margin-bottom:4px}
+.app-card p{color:var(--muted);font-size:.86rem}
+
+/* clients */
+.clients{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cli{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/2;border:1px solid var(--line);background:var(--bg3)}
+.cli img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:saturate(.85) brightness(.8)}
+.cli:hover img{transform:scale(1.08);filter:saturate(1.1) brightness(.95)}
+.cli span{position:absolute;inset:auto 0 0;padding:28px 12px 10px;font-size:.8rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+
+/* CTA */
+.cta{border-radius:32px;padding:80px 40px;text-align:center;position:relative;overflow:hidden;isolation:isolate;border:1px solid var(--line2)}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 300px at 20% 0%,rgba(34,195,238,.35),transparent 60%),radial-gradient(600px 320px at 80% 100%,rgba(217,70,239,.35),transparent 60%),linear-gradient(135deg,#141a3a,#1c1240)}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:#fff;margin-bottom:1rem}
+.cta p{color:#c6cde0;font-size:1.08rem;max-width:560px;margin:0 auto 2rem}
+.cta .hero-actions{justify-content:center}
+.btn-white{background:#fff;color:#0b1020}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(255,255,255,.4)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:46px}
+.f-brand p{color:var(--muted);font-size:.9rem;margin:1rem 0;max-width:300px}
+.f-contact{display:grid;gap:.55rem}
+.f-contact a{display:flex;gap:.6rem;align-items:center;color:var(--muted);text-decoration:none;font-size:.88rem;transition:color .2s}
+.f-contact a:hover{color:#fff}
+.f-col h5{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:1rem;font-weight:600}
+.f-col ul{list-style:none;display:grid;gap:.6rem}
+.f-col a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.f-col a:hover{color:#fff}
+.f-bot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.84rem;color:var(--dim)}
+.f-bot div{display:flex;gap:1.4rem}
+.f-bot a{color:var(--dim);text-decoration:none}.f-bot a:hover{color:#fff}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1080px){
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:70px}
+  .hero-copy{text-align:center}.hero-sub{margin-inline:auto}.hero-actions,.hero-trust{justify-content:center}
+  .stage{max-width:620px;margin:0 auto;width:100%}
+  .app{transform:none}
+  .split{grid-template-columns:minmax(0,1fr);gap:48px}
+  .split.rev .split-visual{order:0}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .tile,.tile.w3,.tile.w4{grid-column:span 1}
+  .tile.wide-m{grid-column:span 2}
+  .ird{grid-template-columns:1fr}
+  .apps{grid-template-columns:1fr 1fr}
+  .clients{grid-template-columns:repeat(4,1fr)}
+  .panelx{grid-template-columns:1fr 1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .mobile-menu{position:fixed;top:72px;left:0;right:0;background:rgba(7,10,20,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 20px 22px;flex-direction:column;gap:4px;z-index:99}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:.8rem .4rem;color:#d5dbea;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:12px;border:0}
+  .nav.open{background:rgba(7,10,20,.97)}
+  .stats{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:80px 0}
+  .hero{padding:120px 0 70px}
+  .f-pay{left:-6px;bottom:-30px}.f-ai{right:-6px;top:-34px}.f-kot{display:none}
+  .kpis{grid-template-columns:1fr 1fr}.kpis .kpi:first-child{grid-column:span 2}
+  .app-row{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .tile.wide-m{grid-column:span 1}
+  .mini-orders{grid-template-columns:1fr 1fr}
+  .kds{grid-template-columns:1fr 1fr}.kds .kot:nth-child(3){display:none}
+  .acc-row{grid-template-columns:1fr}
+  .ird{padding:26px}
+  .ird-list{grid-template-columns:1fr}
+  .panelx{grid-template-columns:1fr}
+  .apps{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(2,1fr)}
+  .cta{padding:56px 22px;border-radius:24px}
+  .f-grid{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1 1 100%}
+  .chat-body{height:420px}
+  .h2 br{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Aphu App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about-us">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/support">Support</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/kds-policy">Privacy Policy</a>
-          </li>
-        </ul>
+<body class="no-js">
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4M17 5h4M5 17v4M3 19h4"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21h3M21 17v4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M10 17h4V5H2v12h3M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M20 17v5H6.5A2.5 2.5 0 0 1 4 19.5M9 7h7M9 11h5"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l9 5H3z"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-nfc" viewBox="0 0 24 24"><path d="M6 8.3a7.4 7.4 0 0 1 0 7.4M9.5 6.2a11.8 11.8 0 0 1 0 11.6M12.9 4.1a15.9 15.9 0 0 1 0 15.8M16.4 2a20.2 20.2 0 0 1 0 20"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></symbol>
+  <symbol id="i-phone-d" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16v-5M12 16V8M17 16V5"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+  <symbol id="i-cmd" viewBox="0 0 24 24"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r=".5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+</svg>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Ahpu home">
+      <picture><source srcset="img/ahpu-logo-mark.webp" type="image/webp"><img src="img/ahpu-logo-mark.png" alt="Ahpu" width="82" height="38"></picture>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#ai">Ahpu AI</a></li>
+      <li><a href="#accounting">Accounting</a></li>
+      <li><a href="#payments">Payments</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/about-us" class="btn btn-glass">About</a>
+      <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Book a demo</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#features">Features</a>
+  <a href="#ai">Ahpu AI</a>
+  <a href="#accounting">Accounting</a>
+  <a href="#payments">Payments</a>
+  <a href="#clients">Clients</a>
+  <a href="/about-us">About</a>
+  <a href="/support">Support</a>
+  <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Book a free demo</a>
+</nav>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <a href="#ai" class="pill rv"><b>NEW in v3</b> Ahpu AI, full accounting &amp; more <svg class="i"><use href="#i-arrow"/></svg></a>
+      <h1 class="rv" style="--d:.08s">Bill faster. <br>Cook in sync. <br><span class="grad-text">Close the books automatically.</span></h1>
+      <p class="hero-sub rv" style="--d:.16s">Ahpu runs your whole restaurant from one screen: <strong>POS, kitchen display, inventory, Fonepay QR, IRD-ready billing and double-entry accounting</strong>. And now an AI assistant that takes orders in English or Nepali.</p>
+      <div class="hero-actions rv" style="--d:.24s">
+        <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main btn-lg">Book a free demo <svg class="i"><use href="#i-arrow"/></svg></a>
+        <a href="#features" class="btn btn-glass btn-lg">See what's inside</a>
+      </div>
+      <div class="hero-trust rv" style="--d:.32s">
+        <span><svg class="i"><use href="#i-check"/></svg> 50+ restaurants live</span>
+        <span><svg class="i"><use href="#i-check"/></svg> IRD-ready billing</span>
+        <span><svg class="i"><use href="#i-check"/></svg> Desktop, tablet &amp; phone</span>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <h1>Welcome to Aphu App</h1>
-      <p>Your ultimate solution for restaurant management.</p>
-      <a href="#" class="btn btn-light btn-lg">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Client Section -->
-    <section class="client-section">
-      <div class="container">
-        <h2 class="text-center mb-5">Our Clients</h2>
-        <div class="row">
-          <!-- Lam Cafe -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/06.jpg" alt="Lam Cafe">
-                <h5>Lam Cafe</h5>
-              </a>
-            </div>
+    <div class="stage rv" style="--d:.2s" aria-hidden="true">
+      <div class="app" id="heroApp">
+        <div class="app-top">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="app-search"><span>Search pages, bills, items…</span><span class="kbd">Ctrl K</span></div>
+        </div>
+        <div class="live-strip">
+          <span class="chip"><i class="pulse"></i> Live service</span>
+          <span class="chip">Tables <b id="hTables">9 / 16</b></span>
+          <span class="chip">Open orders <b id="hOrders">14</b></span>
+          <span class="chip">In kitchen <b id="hKitchen">3</b></span>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><small>Today's sales</small><strong id="hSales">Rs 1,42,850</strong><em>▲ 12% vs last week</em></div>
+          <div class="kpi"><small>Bills</small><strong id="hBills">214</strong><em>▲ 8%</em></div>
+          <div class="kpi"><small>Avg. bill</small><strong>Rs 668</strong><em>▲ 3%</em></div>
+        </div>
+        <div class="app-row">
+          <div class="panel">
+            <h6><span>Sales by hour</span><span>Today</span></h6>
+            <div class="bars" id="hBars"></div>
           </div>
-          <!-- Blue Square Cafe -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/01.jpg" alt="Blue Square Cafe">
-                <h5>Blue Square Cafe</h5>
-              </a>
+          <div class="panel">
+            <h6><span>Payment mix</span></h6>
+            <div class="mix"><i style="width:38%;background:#22c3ee"></i><i style="width:34%;background:#8b5cf6"></i><i style="width:16%;background:#d946ef"></i><i style="width:12%;background:#fbbf24"></i></div>
+            <div class="legend">
+              <span style="--c:#22c3ee">Fonepay <b>38%</b></span>
+              <span style="--c:#8b5cf6">Cash <b>34%</b></span>
+              <span style="--c:#d946ef">Card <b>16%</b></span>
+              <span style="--c:#fbbf24">Credit <b>12%</b></span>
             </div>
-          </div>
-          <!-- Newa Suli -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/02.jpg" alt="Newa Suli">
-                <h5>Newa Suli</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Triangle -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/03.jpg" alt="Triangle">
-                <h5>Triangle</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Hyderabad House -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/07.jpg" alt="Hyderabad House">
-                <h5>Hyderabad House</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Baghdurbar -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/08.jpg" alt="Baghdurbar">
-                <h5>Baghdurbar</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Gurkhazgrill -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/09.jpg" alt="Gurkhazgrill">
-                <h5>Gurkhazgrill</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Cafe The Vitamin -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/091.jpg" alt="Cafe The Vitamin">
-                <h5>Cafe The Vitamin</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Taza Treats -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/10.jpg" alt="Taza Treats">
-                <h5>Taza Treats</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Nasa Chhen -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/11.jpg" alt="Nasa Chhen">
-                <h5>Nasa Chhen</h5>
-              </a>
-            </div>
-          </div>
-          <!-- The Urban Hub -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/12.jpg" alt="The Urban Hub">
-                <h5>The Urban Hub</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Polines Garden -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/13.jpg" alt="Polines Garden">
-                <h5>Polines Garden</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Anjapper Curry House -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/14.jpg" alt="Anjapper Curry House">
-                <h5>Anjapper Curry House</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Larry's Fussion -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/15.jpg" alt="Larry's Fussion">
-                <h5>Larry's Fussion</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Deoch An Doris -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/16.jpg" alt="Deoch An Doris">
-                <h5>Deoch An Doris</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Maasu Chiura -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/17.jpg" alt="Maasu Chiura">
-                <h5>Maasu Chiura</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Saathi Cafe -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/18.jpg" alt="Saathi Cafe">
-                <h5>Saathi Cafe</h5>
-              </a>
-            </div>
-          </div>
-          <!-- CFC Dhapakhel -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/19.jpg" alt="CFC Dhapakhel">
-                <h5>CFC Dhapakhel</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Ahpu - Demo -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/04.jpg" alt="Ahpu - Demo">
-                <h5>Ahpu - Demo</h5>
-              </a>
-            </div>
-          </div>
-          <!-- Ahpu - UAT -->
-          <div class="col-md-4 mb-4">
-            <div class="client-card text-center">
-              <a href="#">
-                <img src="img/05.jpg" alt="Ahpu - UAT">
-                <h5>Ahpu - UAT</h5>
-              </a>
+            <div class="sellers">
+              <div class="seller">Chicken Momo <i style="--w:92%"></i></div>
+              <div class="seller">Thakali Set <i style="--w:71%"></i></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2023 Aphu App. All rights reserved. | <a href="#">Privacy Policy</a></p>
+      <div class="float f-ai"><div class="ic"><svg class="i"><use href="#i-spark"/></svg></div><div><strong>"Show today's best sellers"</strong><small>Ahpu AI · Ctrl + /</small></div></div>
+      <div class="float f-pay" id="payToast"><div class="ic"><svg class="i"><use href="#i-check"/></svg></div><div><strong id="payTxt">Fonepay · Rs 1,250 received</strong><small id="paySub">Table 4 · bill created automatically</small></div></div>
+      <div class="float f-kot"><div class="ic"><svg class="i"><use href="#i-flame"/></svg></div><div><strong>KOT #318 ready</strong><small>Main kitchen → Table 7</small></div></div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- CLIENT MARQUEE -->
+<div class="marquee" aria-label="Restaurants using Ahpu">
+  <p>Running every day at</p>
+  <div class="mq">
+    <span>Lam Cafe</span><span>Blue Square Cafe</span><span>Newa Suli</span><span>Hyderabad House</span><span>Baghdurbar</span><span>Gurkhazgrill</span><span>Cafe The Vitamin</span><span>Taza Treats</span><span>Nasa Chhen</span><span>The Urban Hub</span><span>Polines Garden</span><span>Anjapper Curry House</span><span>Larry's Fussion</span><span>Deoch An Doris</span><span>Maasu Chiura</span><span>Saathi Cafe</span><span>CFC Dhapakhel</span><span>Triangle</span>
+    <span aria-hidden="true">Lam Cafe</span><span aria-hidden="true">Blue Square Cafe</span><span aria-hidden="true">Newa Suli</span><span aria-hidden="true">Hyderabad House</span><span aria-hidden="true">Baghdurbar</span><span aria-hidden="true">Gurkhazgrill</span><span aria-hidden="true">Cafe The Vitamin</span><span aria-hidden="true">Taza Treats</span><span aria-hidden="true">Nasa Chhen</span><span aria-hidden="true">The Urban Hub</span><span aria-hidden="true">Polines Garden</span><span aria-hidden="true">Anjapper Curry House</span><span aria-hidden="true">Larry's Fussion</span><span aria-hidden="true">Deoch An Doris</span><span aria-hidden="true">Maasu Chiura</span><span aria-hidden="true">Saathi Cafe</span><span aria-hidden="true">CFC Dhapakhel</span><span aria-hidden="true">Triangle</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="wrap" style="padding-top:70px">
+  <div class="stats rv">
+    <div class="stat"><strong><span class="count" data-to="50">0</span><sup class="grad-text">+</sup></strong><span>Restaurants live</span></div>
+    <div class="stat"><strong><span class="count" data-to="35">0</span><sup class="grad-text">+</sup></strong><span>Built-in reports</span></div>
+    <div class="stat"><strong><span class="count" data-to="4">0</span></strong><span>Connected apps</span></div>
+    <div class="stat"><strong>EN<span class="grad-text"> + </span>ने</strong><span>AI voice languages</span></div>
+  </div>
+</div>
+
+<!-- BENTO FEATURES -->
+<section id="features" class="cv">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Everything in one place</span>
+      <h2 class="h2">One system for the front, <br>the kitchen and the back office.</h2>
+      <p class="lead">Stop juggling a billing app, a notebook for stock and a spreadsheet for accounts. Ahpu connects every order to the kitchen, the stock room and the books.</p>
+    </div>
+    <div class="bento">
+      <div class="tile w4 wide-m rv">
+        <div class="ico c-violet"><svg class="i"><use href="#i-receipt"/></svg></div>
+        <h3>Point of sale &amp; live order board</h3>
+        <p>Every table and takeaway at a glance. Add items, split payments, apply discounts and bill in seconds on desktop, tablet or phone.</p>
+        <div class="mini-orders">
+          <div class="mo"><b>Table 2</b>Rs 2,340 <br><i class="st-cook">Cooking</i></div>
+          <div class="mo"><b>Table 5</b>Rs 980 <br><i class="st-new">New</i></div>
+          <div class="mo"><b>Takeaway 12</b>Rs 640 <br><i class="st-ready">Ready</i></div>
+          <div class="mo"><b>Table 9</b>Rs 4,110 <br><i class="st-bill">Billing</i></div>
+        </div>
+      </div>
+      <div class="tile w2 rv" style="--d:.08s">
+        <div class="ico c-red"><svg class="i"><use href="#i-flame"/></svg></div>
+        <h3>Kitchen display (KDS)</h3>
+        <p>Orders go straight to the right kitchen screen: bar, grill or main. No paper KOTs and no shouting.</p>
+        <div class="tags"><span>KOT routing</span><span>Notes</span><span>Status sync</span></div>
+      </div>
+      <div class="tile w2 rv">
+        <div class="ico c-cyan"><svg class="i"><use href="#i-qr"/></svg></div>
+        <h3>Tables, floors &amp; QR ordering</h3>
+        <p>Design your floor plan, transfer tables, take bookings, and let guests scan to order or call a waiter.</p>
+      </div>
+      <div class="tile w2 rv" style="--d:.08s">
+        <div class="ico c-green"><svg class="i"><use href="#i-box"/></svg></div>
+        <h3>Inventory &amp; recipes</h3>
+        <p>Recipes take ingredients out of stock every time an item sells. Unit conversion, WAC valuation and low-stock alerts are built in.</p>
+      </div>
+      <div class="tile w2 rv" style="--d:.16s">
+        <div class="ico c-amber"><svg class="i"><use href="#i-truck"/></svg></div>
+        <h3>Purchase orders</h3>
+        <p>Turn low stock into a purchase order in one click, track its status, and record the purchase against it.</p>
+      </div>
+      <div class="tile w3 rv">
+        <div class="ico c-blue"><svg class="i"><use href="#i-scale"/></svg></div>
+        <h3>Double-entry accounting, posted for you</h3>
+        <p>Bills, payments, returns and voids post to the journal the moment they happen. The trial balance and balance sheet are always up to date.</p>
+        <div class="ledger">
+          <div class="hd"><span>JV-0421 · Bill A-1042</span><span>Dr</span><span>Cr</span></div>
+          <div><span>Fonepay account</span><span>1,130.00</span><span></span></div>
+          <div><span>Food sales</span><span></span><span>1,000.00</span></div>
+          <div><span>VAT payable</span><span></span><span>130.00</span></div>
+          <div><span>Balanced ✓</span><span>1,130.00</span><span>1,130.00</span></div>
+        </div>
+      </div>
+      <div class="tile w3 rv" style="--d:.08s">
+        <div class="ico c-pink"><svg class="i"><use href="#i-spark"/></svg></div>
+        <h3>Ahpu AI, on every page</h3>
+        <p>Press <span class="kbd">Ctrl</span> + <span class="kbd">/</span> and just say what you need. It opens pages, records expenses, adds customers and items, and drafts bills, purchases and journal entries for you to check.</p>
+        <div class="tags"><span>Voice in English &amp; Nepali</span><span>Preview before save</span><span>Every action logged</span></div>
+      </div>
+      <div class="tile w2 rv">
+        <div class="ico c-cyan"><svg class="i"><use href="#i-wallet"/></svg></div>
+        <h3>Fonepay, eSewa &amp; split pay</h3>
+        <p>Show a dynamic QR. When the payment matches, the bill is created on its own.</p>
+      </div>
+      <div class="tile w2 rv" style="--d:.08s">
+        <div class="ico c-violet"><svg class="i"><use href="#i-nfc"/></svg></div>
+        <h3>Staff, shifts &amp; attendance</h3>
+        <p>Staff clock in with an NFC card, Face ID or user code. Shifts, roles, tips and attendance reports are included.</p>
+      </div>
+      <div class="tile w2 rv" style="--d:.16s">
+        <div class="ico c-amber"><svg class="i"><use href="#i-printer"/></svg></div>
+        <h3>Printing that just works</h3>
+        <p>Thermal receipts and KOTs print straight from the browser, with a print-fail log so nothing goes missing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section id="ai" class="ai-sec cv">
+  <div class="wrap split">
+    <div class="rv">
+      <span class="eyebrow">New · Ahpu AI</span>
+      <h2 class="h2">Just tell Ahpu <br><span class="grad-text">what you need.</span></h2>
+      <p class="lead">A floating assistant that knows your restaurant. Type it, or say it in English or Nepali. Ahpu AI shows you a preview first, then does the work with the same checks as the normal forms.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Opens on any page</b> with Ctrl + / (⌘ + / on Mac). You can move it around and use it on a phone.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Saves expenses, customers, items and shifts</b> after you confirm the preview.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Drafts bills, purchases and journal entries</b> for you to review and post.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>AI Support in the mobile app</b> answers staff questions using live printer, kitchen and print-fail data.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Every question and answer is logged</b>, so owners can see who asked what.</span></li>
+      </ul>
+      <div class="lang"><span>🎙 English</span><span>🎙 नेपाली</span><span>⌨ Ctrl + /</span></div>
+    </div>
+    <div class="split-visual rv" style="--d:.1s">
+      <div class="chatwin" aria-hidden="true">
+        <div class="chat-hd"><div class="orb"></div><div><strong>Ahpu AI</strong><small>Ready · knows your menu, stock &amp; books</small></div><span class="kbd">Ctrl /</span></div>
+        <div class="chat-body" id="chat"></div>
+        <div class="chat-in"><span id="chatHint">Ask anything, or hold the mic…</span><span class="mic"><svg class="i"><use href="#i-mic"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POS -->
+<section id="pos" class="cv">
+  <div class="wrap split">
+    <div class="split-visual rv">
+      <div class="pos">
+        <div class="pos-hd"><b>Table 3 · New order</b><span id="posCount">0 items</span></div>
+        <div class="cats"><span class="on">All</span><span>Momo</span><span>Thakali</span><span>Drinks</span><span>Desserts</span></div>
+        <div class="pos-grid" id="posGrid"></div>
+        <div class="cart">
+          <div class="cart-lines" id="cartLines"><div class="empty">Tap items above to build an order →</div></div>
+          <div class="sums">
+            <div><span>Sub total</span><span id="sSub">Rs 0</span></div>
+            <div><span>VAT 13%</span><span id="sVat">Rs 0</span></div>
+            <div class="tot"><span>Total</span><span id="sTot">Rs 0</span></div>
+          </div>
+        </div>
+        <div class="pos-act"><span>Send KOT</span><span>Split pay</span><span>Bill &amp; print</span></div>
+      </div>
+      <p class="hint">Try it: tap a few items</p>
+    </div>
+    <div class="rv" style="--d:.1s">
+      <span class="eyebrow">Point of sale</span>
+      <h2 class="h2">Built for the <br>Friday-night rush.</h2>
+      <p class="lead">Fast with a touchscreen, a mouse or a keyboard. Staff can take an order, send it to the kitchen and print the bill without leaving the screen.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Active order popup</b> on desktop, tablet and phone. Add items, change quantities and add notes.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Split payments</b> with a one-tap Fill button for the remaining amount.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Discount limits</b> checked to the paisa, plus combos and on-the-house orders.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Tax invoice, abbreviated tax invoice or estimate</b>. Void or return a bill, with or without a refund.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Edit lock</b> so two staff can never change the same order at once.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Ctrl + K command palette</b>, pinned menu links and a lock screen with a live clock.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KDS -->
+<section class="cv" style="padding-top:0">
+  <div class="wrap split rev">
+    <div class="rv">
+      <span class="eyebrow">Kitchen display</span>
+      <h2 class="h2">Kitchen and floor, <br>always in sync.</h2>
+      <p class="lead">Each KOT goes to the right station the moment the order is saved. Waiters see what's ready without walking to the pass.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Routing by kitchen</b> (bar, grill, main) with KOT notes and special requests.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>New → Cooking → Ready</b> status shared with the waiter app in real time.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Guests call a waiter by QR</b>, and waiters can call each other too.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>KOT log and kitchen reports</b> show where service slows down.</span></li>
+      </ul>
+    </div>
+    <div class="split-visual rv" style="--d:.1s">
+      <div class="pos" aria-hidden="true">
+        <div class="kds-hd"><b>Kitchen display</b><div class="stations"><span>Main</span><span>Grill</span><span>Bar</span></div></div>
+        <div class="kds" id="kds">
+          <div class="kot" data-s="0"><div class="kot-h"><b>Table 5</b><small class="age">2 min</small></div><ul><li>2 × Chicken Momo</li><li>1 × Veg Chowmein<em>No chilli, please</em></li></ul><span class="st">NEW</span></div>
+          <div class="kot" data-s="1"><div class="kot-h"><b>Table 2</b><small class="age">8 min</small></div><ul><li>3 × Thakali Set</li><li>2 × Aloo Sadeko</li></ul><span class="st">COOKING</span></div>
+          <div class="kot" data-s="2"><div class="kot-h"><b>Takeaway 12</b><small class="age">14 min</small></div><ul><li>2 × Sel Roti</li><li>2 × Masala Tea</li></ul><span class="st">READY</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTING -->
+<section id="accounting" class="cv">
+  <div class="wrap split">
+    <div class="split-visual acc-vis rv" aria-hidden="true">
+      <div class="je">
+        <div class="je-hd"><div><b>Journal entry JV-0421</b><small>Posted automatically from Bill A-1042 · FY 083/84</small></div><span class="badge b-green"><svg class="i"><use href="#i-zap"/></svg> Auto-posted</span></div>
+        <div class="ledger" style="margin-top:0">
+          <div class="hd"><span>Account</span><span>Dr</span><span>Cr</span></div>
+          <div><span>Fonepay account</span><span>1,130.00</span><span></span></div>
+          <div><span>Food sales</span><span></span><span>1,000.00</span></div>
+          <div><span>VAT payable</span><span></span><span>130.00</span></div>
+          <div><span>Total</span><span>1,130.00</span><span>1,130.00</span></div>
+        </div>
+      </div>
+      <div class="acc-row">
+        <div class="tree">
+          <div class="g"><span>Assets</span><span>48,92,310</span></div>
+          <div class="s"><span>Cash in hand</span><span>2,14,500</span></div>
+          <div class="s"><span>Bank &amp; Fonepay</span><span>18,40,120</span></div>
+          <div class="s"><span>Stock</span><span>6,37,690</span></div>
+          <div class="g"><span>Liabilities</span><span>11,20,400</span></div>
+        </div>
+        <div class="tiny-card">
+          <small>Net profit · this month</small>
+          <strong>Rs 3,84,200</strong>
+          <span class="badge b-violet">Income statement</span>
+          <svg class="spark" viewBox="0 0 120 34" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#22c3ee"/><stop offset="1" stop-color="#d946ef"/></linearGradient></defs><path d="M0 28 L15 24 L30 26 L45 18 L60 20 L75 12 L90 14 L105 6 L120 4" fill="none" stroke="url(#sg)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="rv" style="--d:.1s">
+      <span class="eyebrow">Accounting</span>
+      <h2 class="h2">Your accountant <br>will love this part.</h2>
+      <p class="lead">Full double-entry accounting sits inside your POS. There's nothing to export and nothing to type twice. Your books follow the Nepali fiscal year.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Real-time posting</b> for bills, customer payments, sales returns and voids.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Trial balance tree, balance sheet, income statement</b> and ledgers with brought-forward balances.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Fiscal years</b> (FY 083/84) with opening balances and carry-forward, plus close and lock.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Customer &amp; vendor ledgers</b>, aging reports and statements you can download.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>VAT return in the new IRD portal layout</b>, with a journal audit log and AI-drafted entries.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BACK OFFICE TABS -->
+<section class="cv" style="padding-top:40px">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Back office</span>
+      <h2 class="h2">The details that keep <br>you profitable.</h2>
+    </div>
+    <div class="tabs rv" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-t="inv"><svg class="i"><use href="#i-box"/></svg> Inventory</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="pur"><svg class="i"><use href="#i-truck"/></svg> Purchasing</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="cus"><svg class="i"><use href="#i-users"/></svg> Customers</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="sec"><svg class="i"><use href="#i-shield"/></svg> Staff &amp; security</button>
+    </div>
+    <div class="panelx on" id="t-inv" role="tabpanel">
+      <div class="fcard"><div class="ico c-green"><svg class="i"><use href="#i-box"/></svg></div><h4>Recipes per item</h4><p>Ingredients come off stock with every sale, including combos and repackaged items.</p></div>
+      <div class="fcard"><div class="ico c-cyan"><svg class="i"><use href="#i-refresh"/></svg></div><h4>Unit conversion everywhere</h4><p>Buy in kg and use in grams. Every stock screen converts for you.</p></div>
+      <div class="fcard"><div class="ico c-violet"><svg class="i"><use href="#i-chart"/></svg></div><h4>WAC valuation &amp; stock log</h4><p>Weighted average cost and a complete stock log for every ingredient.</p></div>
+      <div class="fcard"><div class="ico c-amber"><svg class="i"><use href="#i-bell"/></svg></div><h4>Low stock &amp; re-order</h4><p>See what's running out and send it straight to a purchase order.</p></div>
+      <div class="fcard"><div class="ico c-red"><svg class="i"><use href="#i-file"/></svg></div><h4>Adjustments &amp; wastage</h4><p>Typed stock adjustments and a missing-ingredient log keep counts honest.</p></div>
+      <div class="fcard"><div class="ico c-blue"><svg class="i"><use href="#i-tag"/></svg></div><h4>Track only what matters</h4><p>Set "Is Stock Applied" to No for items you buy but don't count.</p></div>
+    </div>
+    <div class="panelx" id="t-pur" role="tabpanel">
+      <div class="fcard"><div class="ico c-amber"><svg class="i"><use href="#i-truck"/></svg></div><h4>Purchase orders</h4><p>Raise POs, track their status and record the purchase straight from the order.</p></div>
+      <div class="fcard"><div class="ico c-cyan"><svg class="i"><use href="#i-book"/></svg></div><h4>Vendor ledger &amp; VAT</h4><p>Vendor balances, due payables and VAT details, with links back to each purchase.</p></div>
+      <div class="fcard"><div class="ico c-red"><svg class="i"><use href="#i-refresh"/></svg></div><h4>Purchase returns</h4><p>Returns update stock and the vendor account automatically.</p></div>
+      <div class="fcard"><div class="ico c-violet"><svg class="i"><use href="#i-wallet"/></svg></div><h4>Expenses with approvals</h4><p>Expense categories, an approval step and expense reports.</p></div>
+      <div class="fcard"><div class="ico c-green"><svg class="i"><use href="#i-zap"/></svg></div><h4>Quick add from anywhere</h4><p>Add a vendor, category or ingredient from the search box without leaving the form.</p></div>
+      <div class="fcard"><div class="ico c-pink"><svg class="i"><use href="#i-db"/></svg></div><h4>Bulk data import</h4><p>Bring your whole menu and stock in from a sheet when you switch to Ahpu.</p></div>
+    </div>
+    <div class="panelx" id="t-cus" role="tabpanel">
+      <div class="fcard"><div class="ico c-violet"><svg class="i"><use href="#i-users"/></svg></div><h4>Profiles &amp; credit</h4><p>Credit limits, due tracking and bulk payments across many bills.</p></div>
+      <div class="fcard"><div class="ico c-cyan"><svg class="i"><use href="#i-wallet"/></svg></div><h4>Customer wallet</h4><p>Prepaid balance with a full wallet ledger and links to each bill.</p></div>
+      <div class="fcard"><div class="ico c-green"><svg class="i"><use href="#i-file"/></svg></div><h4>Statements &amp; aging</h4><p>Download statements with item details and see who has owed you for how long.</p></div>
+      <div class="fcard"><div class="ico c-pink"><svg class="i"><use href="#i-msg"/></svg></div><h4>SMS marketing</h4><p>Bulk campaigns, birthday greetings and delivery logs.</p></div>
+      <div class="fcard"><div class="ico c-amber"><svg class="i"><use href="#i-cal"/></svg></div><h4>Table booking</h4><p>Time slots, availability exceptions and advance bookings.</p></div>
+      <div class="fcard"><div class="ico c-blue"><svg class="i"><use href="#i-star"/></svg></div><h4>Feedback &amp; Fortune Wheel</h4><p>Collect feedback and run lucky draws to bring guests back.</p></div>
+    </div>
+    <div class="panelx" id="t-sec" role="tabpanel">
+      <div class="fcard"><div class="ico c-violet"><svg class="i"><use href="#i-shield"/></svg></div><h4>Roles &amp; permissions</h4><p>Decide exactly what cashiers, waiters and managers can see and do.</p></div>
+      <div class="fcard"><div class="ico c-cyan"><svg class="i"><use href="#i-nfc"/></svg></div><h4>NFC &amp; Face ID clock-in</h4><p>Card, face or user code. Attendance goes straight into reports.</p></div>
+      <div class="fcard"><div class="ico c-amber"><svg class="i"><use href="#i-clock"/></svg></div><h4>Shift management</h4><p>Assign shifts and send notifications based on who is on duty.</p></div>
+      <div class="fcard"><div class="ico c-green"><svg class="i"><use href="#i-lock"/></svg></div><h4>Lock screen &amp; hide figures</h4><p>Lock the screen with a code, and hide sales figures when guests can see it.</p></div>
+      <div class="fcard"><div class="ico c-red"><svg class="i"><use href="#i-eye"/></svg></div><h4>Activity log</h4><p>A complete audit trail of who did what and when.</p></div>
+      <div class="fcard"><div class="ico c-blue"><svg class="i"><use href="#i-db"/></svg></div><h4>Backups &amp; safe access</h4><p>Automatic database backups, temporary admin access links and encrypted integration keys.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section id="payments" class="cv">
+  <div class="wrap split">
+    <div class="rv">
+      <span class="eyebrow">Payments</span>
+      <h2 class="h2">Scan, pay, done. <br><span class="grad-text">The bill makes itself.</span></h2>
+      <p class="lead">Each order gets its own Fonepay dynamic QR. When the right amount arrives, Ahpu creates the bill on its own. If the amount doesn't match, it stops and tells you.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>QR linked to the order</b> with a signed token, so a payment can't land on the wrong table.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Reconcile and view transactions</b> right inside the order popup.</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>Customer display</b> on a second monitor shows the order and the QR.</span></li>
+      </ul>
+      <div class="paym">
+        <span><svg class="i"><use href="#i-qr"/></svg> Fonepay QR</span>
+        <span><svg class="i"><use href="#i-wallet"/></svg> eSewa</span>
+        <span><svg class="i"><use href="#i-receipt"/></svg> Cash</span>
+        <span><svg class="i"><use href="#i-bank"/></svg> Card &amp; bank</span>
+        <span><svg class="i"><use href="#i-users"/></svg> Credit &amp; wallet</span>
+      </div>
+    </div>
+    <div class="split-visual rv" style="--d:.1s">
+      <div class="qr-card" id="qrCard" aria-hidden="true">
+        <small>Table 4 · Scan to pay</small>
+        <div class="qr-amt">Rs 1,250</div>
+        <div class="qr-box">
+          <svg viewBox="0 0 29 29" shape-rendering="crispEdges" id="qrSvg"></svg>
+          <div class="scan"></div>
+          <div class="paid"><div><svg class="i"><use href="#i-check"/></svg>Payment received</div></div>
+        </div>
+        <div class="qr-meta"><span class="badge b-violet">Fonepay dynamic QR</span><span class="badge b-green">Signed to order #A-1042</span></div>
+        <div class="qr-steps" id="qrSteps">
+          <div><svg class="i"><use href="#i-check"/></svg> Customer scans the QR</div>
+          <div><svg class="i"><use href="#i-check"/></svg> Amount matches Rs 1,250</div>
+          <div><svg class="i"><use href="#i-check"/></svg> Bill A-1042 created and journal posted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IRD -->
+<section class="cv" style="padding-top:20px">
+  <div class="wrap">
+    <div class="ird rv">
+      <div>
+        <span class="eyebrow">Made for Nepal</span>
+        <h2 class="h2" style="font-size:clamp(1.7rem,3vw,2.4rem)">IRD-ready from <br>day one.</h2>
+        <p class="lead">Bikram Sambat dates, 13% VAT handled correctly on mixed bills, and the statutory reports your auditor asks for.</p>
+      </div>
+      <div class="ird-list">
+        <div><svg class="i"><use href="#i-bank"/></svg> IRD-certified billing and sync</div>
+        <div><svg class="i"><use href="#i-receipt"/></svg> Abbreviated tax invoice with limits</div>
+        <div><svg class="i"><use href="#i-file"/></svg> Sales register &amp; sales return books</div>
+        <div><svg class="i"><use href="#i-scale"/></svg> VAT return in the IRD portal layout</div>
+        <div><svg class="i"><use href="#i-cal"/></svg> Nepali fiscal year &amp; BS calendar</div>
+        <div><svg class="i"><use href="#i-eye"/></svg> User activity log, server info &amp; backups</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTS -->
+<section id="reports" class="cv">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Reports</span>
+      <h2 class="h2">35+ reports, <br>one click away.</h2>
+      <p class="lead">From the morning day book to the year-end balance sheet. Filter, export to Excel and print.</p>
+    </div>
+    <div class="cloud rv">
+      <span class="hl">Day Book</span><span>Sales Register</span><span class="hl">Balance Sheet</span><span>Item Sales</span><span>Hourly Sales</span><span class="hl">VAT Return</span><span>Calendar Sales</span><span>Category Sales</span><span>Parent Category Sales</span><span class="hl">Trial Balance</span><span>Customer Report</span><span>Customer Aging</span><span>Customer Wallet</span><span>Payment Method Sales</span><span class="hl">Income Statement</span><span>Item Profit &amp; Loss</span><span>Ingredient Report</span><span>Ingredient Purchases</span><span>Stock Log</span><span>Missing Ingredient Log</span><span>Table Sales</span><span>Expense Report</span><span>Expense Items</span><span>Sales Returns</span><span class="hl">General Ledger</span><span>Tips Report</span><span>On-the-House</span><span>KOT Log</span><span>Kitchen Report</span><span>Attendance</span><span>Week &amp; Time Insights</span><span>Print-Fail Log</span><span>SMS Log</span><span>IRD Statutory Reports</span><span>Fund Transfers</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="cv" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Apps &amp; hardware</span>
+      <h2 class="h2">Works with the devices <br>you already have.</h2>
+    </div>
+    <div class="apps">
+      <div class="app-card rv"><div class="ico c-violet"><svg class="i"><use href="#i-phone-d"/></svg></div><div><h4>Waiter app</h4><p>Take orders at the table, transfer tables and get kitchen and guest-call alerts.</p></div></div>
+      <div class="app-card rv" style="--d:.08s"><div class="ico c-red"><svg class="i"><use href="#i-flame"/></svg></div><div><h4>KDS app</h4><p>A live kitchen screen on any Android tablet, one per station.</p></div></div>
+      <div class="app-card rv" style="--d:.16s"><div class="ico c-cyan"><svg class="i"><use href="#i-spark"/></svg></div><div><h4>Ahpu mobile</h4><p>Manage items, stock and barcodes on your phone, and ask AI Support for help.</p></div></div>
+      <div class="app-card rv"><div class="ico c-pink"><svg class="i"><use href="#i-monitor"/></svg></div><div><h4>Customer display</h4><p>A second screen shows the order, the Fonepay QR and your own ads.</p></div></div>
+      <div class="app-card rv" style="--d:.08s"><div class="ico c-amber"><svg class="i"><use href="#i-printer"/></svg></div><div><h4>Thermal printers &amp; cash drawer</h4><p>80mm ESC/POS printing through the Printer Service Bridge, and the cash drawer opens on its own.</p></div></div>
+      <div class="app-card rv" style="--d:.16s"><div class="ico c-green"><svg class="i"><use href="#i-wifi"/></svg></div><div><h4>Runs on your local network</h4><p>Fonts and scripts load from your own server, so billing keeps going when the internet is slow.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" class="cv">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Our clients</span>
+      <h2 class="h2">Trusted by restaurants <br>across Nepal.</h2>
+      <p class="lead">From cosy cafes to busy full-service restaurants, Ahpu runs service every day.</p>
+    </div>
+    <div class="clients">
+      <figure class="cli rv"><img src="img/clients/06.webp" alt="Lam Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Lam Cafe</span></figure>
+      <figure class="cli rv"><img src="img/clients/01.webp" alt="Blue Square Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Blue Square Cafe</span></figure>
+      <figure class="cli rv"><img src="img/clients/02.webp" alt="Newa Suli" width="480" height="320" loading="lazy" decoding="async"><span>Newa Suli</span></figure>
+      <figure class="cli rv"><img src="img/clients/07.webp" alt="Hyderabad House" width="480" height="320" loading="lazy" decoding="async"><span>Hyderabad House</span></figure>
+      <figure class="cli rv"><img src="img/clients/08.webp" alt="Baghdurbar" width="480" height="320" loading="lazy" decoding="async"><span>Baghdurbar</span></figure>
+      <figure class="cli rv"><img src="img/clients/09.webp" alt="Gurkhazgrill" width="480" height="320" loading="lazy" decoding="async"><span>Gurkhazgrill</span></figure>
+      <figure class="cli rv"><img src="img/clients/091.webp" alt="Cafe The Vitamin" width="480" height="320" loading="lazy" decoding="async"><span>Cafe The Vitamin</span></figure>
+      <figure class="cli rv"><img src="img/clients/10.webp" alt="Taza Treats" width="480" height="320" loading="lazy" decoding="async"><span>Taza Treats</span></figure>
+      <figure class="cli rv"><img src="img/clients/11.webp" alt="Nasa Chhen" width="480" height="320" loading="lazy" decoding="async"><span>Nasa Chhen</span></figure>
+      <figure class="cli rv"><img src="img/clients/12.webp" alt="The Urban Hub" width="480" height="320" loading="lazy" decoding="async"><span>The Urban Hub</span></figure>
+      <figure class="cli rv"><img src="img/clients/13.webp" alt="Polines Garden" width="480" height="320" loading="lazy" decoding="async"><span>Polines Garden</span></figure>
+      <figure class="cli rv"><img src="img/clients/14.webp" alt="Anjapper Curry House" width="480" height="320" loading="lazy" decoding="async"><span>Anjapper Curry House</span></figure>
+      <figure class="cli rv"><img src="img/clients/15.webp" alt="Larry's Fussion" width="480" height="320" loading="lazy" decoding="async"><span>Larry's Fussion</span></figure>
+      <figure class="cli rv"><img src="img/clients/16.webp" alt="Deoch An Doris" width="480" height="320" loading="lazy" decoding="async"><span>Deoch An Doris</span></figure>
+      <figure class="cli rv"><img src="img/clients/17.webp" alt="Maasu Chiura" width="480" height="320" loading="lazy" decoding="async"><span>Maasu Chiura</span></figure>
+      <figure class="cli rv"><img src="img/clients/18.webp" alt="Saathi Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Saathi Cafe</span></figure>
+      <figure class="cli rv"><img src="img/clients/19.webp" alt="CFC Dhapakhel" width="480" height="320" loading="lazy" decoding="async"><span>CFC Dhapakhel</span></figure>
+      <figure class="cli rv"><img src="img/clients/03.webp" alt="Triangle" width="480" height="320" loading="lazy" decoding="async"><span>Triangle</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cv" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>See Ahpu running <br><span class="grad-text">with your own menu.</span></h2>
+      <p>We'll set up a demo with your items, tables and printers. It takes about 20 minutes on a call or at your restaurant.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-white btn-lg"><svg class="i"><use href="#i-msg"/></svg> Chat on WhatsApp</a>
+        <a href="tel:+9779802046069" class="btn btn-glass btn-lg"><svg class="i"><use href="#i-phone"/></svg> +977-9802046069</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <picture><source srcset="img/ahpu-logo-mark.webp" type="image/webp"><img src="img/ahpu-logo-mark.png" alt="Ahpu" width="82" height="38" loading="lazy"></picture>
+        <p>Restaurant POS, kitchen, inventory, payments and accounting in one system, built in Nepal for restaurants that care about service.</p>
+        <div class="f-contact">
+          <a href="mailto:info@ahpuapp.com"><svg class="i"><use href="#i-mail"/></svg> info@ahpuapp.com</a>
+          <a href="tel:+9779802046069"><svg class="i"><use href="#i-phone"/></svg> +977-9802046069</a>
+          <a href="https://maps.google.com/?q=Lagankhel,Lalitpur" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Lagankhel, Lalitpur, Nepal</a>
+        </div>
+      </div>
+      <div class="f-col"><h5>Product</h5><ul>
+        <li><a href="#pos">Point of sale</a></li><li><a href="#features">Kitchen display</a></li><li><a href="#ai">Ahpu AI</a></li><li><a href="#accounting">Accounting</a></li><li><a href="#payments">Fonepay &amp; payments</a></li><li><a href="#reports">Reports</a></li>
+      </ul></div>
+      <div class="f-col"><h5>Apps</h5><ul>
+        <li><a href="#features">Waiter app</a></li><li><a href="/kds-policy">KDS app</a></li><li><a href="#ai">Ahpu mobile</a></li><li><a href="#payments">Customer display</a></li>
+      </ul></div>
+      <div class="f-col"><h5>Company</h5><ul>
+        <li><a href="/about-us">About us</a></li><li><a href="/support">Support</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/kds-policy">KDS policy</a></li><li><a href="mailto:info@ahpuapp.com">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bot">
+      <span>&copy; <span id="yr">2025</span> Ahpu Solution Pvt. Ltd. All rights reserved.</span>
+      <div><a href="/privacy-policy">Privacy</a><a href="/support">Support</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document, b=d.body;
+  b.classList.remove('no-js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s,c){return (c||d).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))};
+  var fmt=function(n){return 'Rs '+Math.round(n).toLocaleString('en-IN')};
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* nav */
+  var nav=$('#nav'), menu=$('#mobileMenu'), burger=$('#burger');
+  var onScroll=function(){nav.classList.toggle('scrolled',scrollY>20)};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var setMenu=function(open){menu.classList.toggle('open',open);nav.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);burger.innerHTML='<svg class="i"><use href="#i-'+(open?'x':'menu')+'"/></svg>'};
+  burger.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
+  $$('a',menu).forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  /* reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  $$('.rv').forEach(function(el){io.observe(el)});
+
+  /* counters */
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target,to=+el.dataset.to,t0=null;cio.unobserve(el);
+    if(reduce){el.textContent=to;return}
+    (function step(t){t0=t0||t;var p=Math.min((t-t0)/1400,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)})(performance.now())})},{threshold:.6});
+  $$('.count').forEach(function(el){cio.observe(el)});
+
+  /* run loops only while visible */
+  function whenVisible(el,start,stop){var on=false;new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!on){on=true;start()}else if(!v&&on){on=false;stop&&stop()}},{threshold:.15}).observe(el)}
+
+  /* spotlight on tiles */
+  $$('.tile').forEach(function(t){t.addEventListener('pointermove',function(e){var r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+  /* hero live dashboard */
+  var barsEl=$('#hBars'), base=[18,26,44,72,88,61,40,34,52,79,96,70], sales=142850, bills=214;
+  base.forEach(function(h,i){var s=d.createElement('i');s.style.setProperty('--h',h+'%');if(h===96)s.className='peak';barsEl.appendChild(s)});
+  var hTimer, pays=[['Fonepay · Rs 1,250 received','Table 4 · bill created automatically'],['eSewa · Rs 860 received','Takeaway 15 · bill created automatically'],['Fonepay · Rs 2,430 received','Table 9 · bill created automatically']], pi=0;
+  function heroTick(){
+    $$('i',barsEl).forEach(function(s,i){s.style.setProperty('--h',Math.max(12,Math.min(100,base[i]+(Math.random()*24-12)))+'%')});
+    var add=300+Math.random()*1400;sales+=add;bills+=1;
+    $('#hSales').textContent=fmt(sales);$('#hBills').textContent=bills;
+    $('#hOrders').textContent=12+Math.floor(Math.random()*5);$('#hKitchen').textContent=2+Math.floor(Math.random()*4);
+    pi=(pi+1)%pays.length;var t=$('#payToast');$('#payTxt').textContent=pays[pi][0];$('#paySub').textContent=pays[pi][1];
+    t.classList.remove('toast-in');void t.offsetWidth;t.classList.add('toast-in');
+  }
+  if(!reduce) whenVisible($('#heroApp'),function(){hTimer=setInterval(heroTick,2600)},function(){clearInterval(hTimer)});
+
+  /* AI chat demo */
+  var chat=$('#chat'), hint=$('#chatHint');
+  var script=[
+    {u:'Add gas cylinder expense, Rs 1,950, paid cash',v:0},
+    {a:'Here is the expense. Check it and save:',p:[['Expense','Gas cylinder'],['Category','Kitchen fuel'],['Amount','Rs 1,950'],['Paid by','Cash · today']]},
+    {ok:'Saved to Expenses and posted to the Day Book.'},
+    {u:'नयाँ ग्राहक थप्नुस्: Sita Shrestha, 98XXXXXXXX',v:1},
+    {a:'New customer, ready to add:',p:[['Name','Sita Shrestha'],['Phone','98XXXXXXXX'],['Type','Regular']]},
+    {ok:'Customer added. Ready to bill Sita.'},
+    {u:'Open the sales register for this month',v:0},
+    {ok:'Opening Sales Register · Kartik 2083…'}
+  ];
+  var ci=0, cTimer, running=false;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function addMsg(html,cls){var m=d.createElement('div');m.className='msg '+cls;m.innerHTML=html;chat.appendChild(m);while(chat.children.length>6)chat.removeChild(chat.firstChild);return m}
+  function chatStep(){
+    if(!running)return;
+    if(ci>=script.length){ci=0;chat.innerHTML='';cTimer=setTimeout(chatStep,600);return}
+    var s=script[ci++];
+    if(s.u){hint.textContent=s.v?'Listening… (नेपाली)':'Typing…';addMsg((s.v?'<svg class="i"><use href="#i-mic"/></svg>':'')+esc(s.u),'u');cTimer=setTimeout(chatStep,900);return}
+    var t=addMsg('<span class="typing"><i></i><i></i><i></i></span>','a');hint.textContent='Ahpu AI is thinking…';
+    cTimer=setTimeout(function(){
+      if(s.p){t.innerHTML=esc(s.a)+'<div class="prev">'+s.p.map(function(r){return '<div><span>'+r[0]+'</span><b>'+esc(r[1])+'</b></div>'}).join('')+'<div class="acts"><span>Save</span><span>Edit</span></div></div>'}
+      else{t.innerHTML='<span class="ok"><svg class="i"><use href="#i-check"/></svg>'+esc(s.ok)+'</span>'}
+      hint.textContent='Ask anything, or hold the mic…';
+      cTimer=setTimeout(chatStep,s.p?1700:1500);
+    },900);
+  }
+  if(reduce){script.slice(0,3).forEach(function(s){if(s.u)addMsg(esc(s.u),'u');else if(s.p)addMsg(esc(s.a),'a');else addMsg('<span class="ok">'+esc(s.ok)+'</span>','a')})}
+  else whenVisible(chat,function(){running=true;chatStep()},function(){running=false;clearTimeout(cTimer)});
+
+  /* POS interactive */
+  var menuItems=[['Chicken Momo',250],['Jhol Momo',280],['Thakali Set',450],['Chowmein',220],['Masala Tea',60],['Lassi',150]];
+  var cart={}, grid=$('#posGrid');
+  menuItems.forEach(function(m,i){var bt=d.createElement('button');bt.type='button';bt.className='pi';bt.innerHTML='<span class="q">0</span><b>'+m[0]+'</b><small>Rs '+m[1]+'</small>';bt.addEventListener('click',function(){cart[i]=(cart[i]||0)+1;renderCart()});grid.appendChild(bt)});
+  function renderCart(){
+    var lines=$('#cartLines'), sub=0, n=0, html='';
+    Object.keys(cart).forEach(function(k){var m=menuItems[k],q=cart[k];sub+=m[1]*q;n+=q;html='<div class="cl"><span>'+q+' × '+m[0]+'</span><em>'+fmt(m[1]*q)+'</em></div>'+html});
+    lines.innerHTML=html||'<div class="empty">Tap items above to build an order →</div>';
+    $$('.pi',grid).forEach(function(bt,i){bt.classList.toggle('has',!!cart[i]);$('.q',bt).textContent=cart[i]||0});
+    var vat=sub*.13;$('#sSub').textContent=fmt(sub);$('#sVat').textContent=fmt(vat);$('#sTot').textContent=fmt(sub+vat);
+    $('#posCount').textContent=n+(n===1?' item':' items');
+  }
+  cart={0:2,4:1};renderCart();
+
+  /* KDS cycling */
+  var kds=$('#kds'), kTimer, labels=['NEW','COOKING','READY'];
+  var tickets=[['Table 7',['1 × Buff Sukuti','2 × Fried Rice<em>Extra egg</em>']],['Table 11',['4 × Chicken Momo','1 × Veg Pakoda']],['Takeaway 18',['2 × Chowmein','2 × Coke']],['Table 3',['1 × Thakali Set','1 × Lassi']]], ti=0;
+  function kdsTick(){
+    $$('.kot',kds).forEach(function(k){var s=+k.dataset.s;var age=$('.age',k);
+      if(s===2){var t=tickets[ti++%tickets.length];k.dataset.s=0;$('b',k).textContent=t[0];$('ul',k).innerHTML=t[1].map(function(x){return '<li>'+x+'</li>'}).join('');age.textContent='just now'}
+      else{k.dataset.s=s+1;age.textContent=(parseInt(age.textContent)||0)+4+' min'}
+      $('.st',k).textContent=labels[k.dataset.s];k.classList.add('flash');setTimeout(function(){k.classList.remove('flash')},400)});
+  }
+  if(!reduce) whenVisible(kds,function(){kTimer=setInterval(kdsTick,2800)},function(){clearInterval(kTimer)});
+
+  /* tabs */
+  var tabs=$$('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});$$('.panelx').forEach(function(p){p.classList.toggle('on',p.id==='t-'+t.dataset.t)})})});
+
+  /* QR: draw pseudo QR + payment loop */
+  var q=$('#qrSvg'), N=29, seed=7, path='';
+  function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  function finder(x,y){return 'M'+x+' '+y+'h7v7h-7zM'+(x+1)+' '+(y+1)+'v5h5v-5zM'+(x+2)+' '+(y+2)+'h3v3h-3z'}
+  for(var y=0;y<N;y++)for(var x=0;x<N;x++){var inF=(x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9);if(!inF&&rnd()>.52)path+='M'+x+' '+y+'h1v1h-1z'}
+  q.innerHTML='<path fill="#0b1020" fill-rule="evenodd" d="'+finder(0,0)+finder(N-7,0)+finder(0,N-7)+path+'"/>';
+  var qc=$('#qrCard'), steps=$$('#qrSteps div'), qTimers=[];
+  function qrCycle(){qc.classList.remove('done');steps.forEach(function(s){s.classList.remove('on')});
+    qTimers.push(setTimeout(function(){steps[0].classList.add('on')},1200));
+    qTimers.push(setTimeout(function(){steps[1].classList.add('on')},2400));
+    qTimers.push(setTimeout(function(){steps[2].classList.add('on');qc.classList.add('done')},3300));
+    qTimers.push(setTimeout(qrCycle,6800));}
+  if(reduce){qc.classList.add('done');steps.forEach(function(s){s.classList.add('on')})}
+  else whenVisible(qc,qrCycle,function(){qTimers.forEach(clearTimeout);qTimers=[]});
+})();
+</script>
 </body>
 </html>
