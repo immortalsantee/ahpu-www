@@ -1,0 +1,95 @@
+{
+    "updated": "2026-11-09T23:43:40+00:00",
+    "clients": [
+        {
+            "id": "blue-square-cafe",
+            "name": "Blue Square Cafe",
+            "logo": "uploads/clients/blue-square-cafe.webp"
+        },
+        {
+            "id": "lam-cafe",
+            "name": "Lam Cafe",
+            "logo": "uploads/clients/lam-cafe.webp"
+        },
+        {
+            "id": "newa-suli",
+            "name": "Newa Suli",
+            "logo": "uploads/clients/newa-suli.webp"
+        },
+        {
+            "id": "hyderabad-house",
+            "name": "Hyderabad House",
+            "logo": "uploads/clients/hyderabad-house.webp"
+        },
+        {
+            "id": "baghdurbar",
+            "name": "Baghdurbar",
+            "logo": "uploads/clients/baghdurbar.webp"
+        },
+        {
+            "id": "gurkhazgrill",
+            "name": "Gurkhazgrill",
+            "logo": "uploads/clients/gurkhazgrill.webp"
+        },
+        {
+            "id": "cafe-the-vitamin",
+            "name": "Cafe The Vitamin",
+            "logo": "uploads/clients/cafe-the-vitamin.webp"
+        },
+        {
+            "id": "taza-treats",
+            "name": "Taza Treats",
+            "logo": "uploads/clients/taza-treats.webp"
+        },
+        {
+            "id": "nasa-chhen",
+            "name": "Nasa Chhen",
+            "logo": "uploads/clients/nasa-chhen.webp"
+        },
+        {
+            "id": "the-urban-hub",
+            "name": "The Urban Hub",
+            "logo": "uploads/clients/the-urban-hub.webp"
+        },
+        {
+            "id": "polines-garden",
+            "name": "Polines Garden",
+            "logo": "uploads/clients/polines-garden.webp"
+        },
+        {
+            "id": "anjapper-curry-house",
+            "name": "Anjapper Curry House",
+            "logo": "uploads/clients/anjapper-curry-house.webp"
+        },
+        {
+            "id": "larrys-fussion",
+            "name": "Larry's Fussion",
+            "logo": "uploads/clients/larrys-fussion.webp"
+        },
+        {
+            "id": "deoch-an-doris",
+            "name": "Deoch An Doris",
+            "logo": "uploads/clients/deoch-an-doris.webp"
+        },
+        {
+            "id": "maasu-chiura",
+            "name": "Maasu Chiura",
+            "logo": "uploads/clients/maasu-chiura.webp"
+        },
+        {
+            "id": "saathi-cafe",
+            "name": "Saathi Cafe",
+            "logo": "uploads/clients/saathi-cafe.webp"
+        },
+        {
+            "id": "cfc-dhapakhel",
+            "name": "CFC Dhapakhel",
+            "logo": "uploads/clients/cfc-dhapakhel.webp"
+        },
+        {
+            "id": "triangle",
+            "name": "Triangle",
+            "logo": "uploads/clients/triangle.webp"
+        }
+    ]
+}

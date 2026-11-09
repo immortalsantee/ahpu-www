@@ -1,0 +1,16 @@
+# Uploaded logos only. Never run scripts from here.
+Options -Indexes -ExecCGI
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phar .pl .py .cgi .sh
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phar
+<FilesMatch "\.(?i:php\d?|phtml|phar|pl|py|cgi|sh|html?|js|svg)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

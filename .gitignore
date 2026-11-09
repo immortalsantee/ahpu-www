@@ -1,0 +1,5 @@
+.DS_Store
+# Secrets and runtime state for /admin (never commit)
+private/config.php
+private/auth.php
+private/attempts.php

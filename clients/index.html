@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Clients — Ahpu</title>
+<meta name="description" content="Restaurants and cafes across Nepal that run on Ahpu restaurant POS, KDS, billing and accounting.">
+<meta name="theme-color" content="#070a14">
+<link rel="icon" href="../img/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070a14;--bg2:#0b1020;--card:#0f1528;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);--text:#e8ecf6;--muted:#9aa4bd;--dim:#6b7590;--cyan:#22c3ee;--violet:#8b5cf6;--pink:#d946ef;--amber:#fbbf24;--green:#34d399;--red:#f87171;--grad:linear-gradient(110deg,#22c3ee 0%,#6d8cff 40%,#a46bf5 70%,#d946ef 100%);--display:'Sora',system-ui,sans-serif}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.i{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.15em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.grad-text{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.35rem;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn-main{background:var(--grad);background-size:150% auto;color:#fff;box-shadow:0 8px 30px -8px rgba(139,92,246,.7)}
+.btn-main:hover{transform:translateY(-2px);background-position:right center}
+.btn-glass{background:rgba(255,255,255,.05);border-color:var(--line2);color:var(--text)}
+.btn-glass:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.btn-white{background:#fff;color:#0b1020}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-lg{padding:1rem 1.6rem;font-size:1rem;border-radius:14px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled,.nav.open{background:rgba(7,10,20,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:.25rem;list-style:none}
+.nav-links a{display:block;padding:.5rem .85rem;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(255,255,255,.06)}
+.nav-cta{display:flex;gap:.6rem}.nav-cta .btn{padding:.6rem 1.1rem;font-size:.88rem}
+.burger{display:none;background:none;border:0;color:#fff;padding:.5rem;cursor:pointer}.burger .i{width:26px;height:26px}
+.mobile-menu{display:none}
+
+/* hero */
+.hero{position:relative;padding:150px 0 70px;overflow:hidden;isolation:isolate;text-align:center}
+.aurora{position:absolute;inset:-30% -10% auto;height:130%;z-index:-2;pointer-events:none}
+.aurora span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45}
+.aurora span:nth-child(1){width:460px;height:460px;background:#1d6fe0;left:10%;top:10%;animation:drift1 18s ease-in-out infinite}
+.aurora span:nth-child(2){width:420px;height:420px;background:#7c3aed;right:10%;top:0;animation:drift2 22s ease-in-out infinite}
+@keyframes drift1{50%{transform:translate(120px,60px) scale(1.1)}}
+@keyframes drift2{50%{transform:translate(-100px,90px) scale(.9)}}
+.grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 20%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 20%,#000 30%,transparent 75%)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#b9a6ff;margin-bottom:1rem}
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--grad)}
+.hero h1{font-family:var(--display);font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.035em;font-weight:800;color:#fff;margin-bottom:1rem}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:600px;margin:0 auto}
+.count{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.6rem;font-size:.84rem;color:#c6cde0;padding:.45rem .95rem;border:1px solid var(--line2);border-radius:999px;background:rgba(255,255,255,.04)}
+.count b{color:#fff;font-family:var(--display)}
+section{padding:40px 0 0}
+.tools{display:flex;justify-content:center;margin-bottom:28px}
+.search{position:relative;width:100%;max-width:420px}
+.search .i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--dim)}
+.search input{width:100%;font:inherit;font-size:.95rem;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:14px;padding:.8rem 1rem .8rem 2.6rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.search input:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(139,92,246,.25)}
+.clients{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.cli{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 12px 14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);transition:border-color .3s,transform .3s,background .3s}
+.cli:hover{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.06);transform:translateY(-4px)}
+.cli .lg{width:100%;aspect-ratio:1;border-radius:13px;background:#fff;overflow:hidden}
+.cli img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cli:hover img{transform:scale(1.05)}
+.cli span{font-size:.82rem;font-weight:600;color:#d5dbea;text-align:center;line-height:1.3}
+.cli[hidden]{display:none}
+.none{text-align:center;color:var(--dim);padding:40px 0}
+/* cta + footer */
+.cta{border-radius:32px;padding:70px 40px;text-align:center;position:relative;overflow:hidden;isolation:isolate;border:1px solid var(--line2)}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 300px at 20% 0%,rgba(34,195,238,.35),transparent 60%),radial-gradient(600px 320px at 80% 100%,rgba(217,70,239,.35),transparent 60%),linear-gradient(135deg,#141a3a,#1c1240)}
+.cta h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:1rem}
+.cta p{color:#c6cde0;max-width:520px;margin:0 auto 2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+footer{border-top:1px solid var(--line);padding:40px 0 30px;margin-top:90px}
+.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.86rem;color:var(--dim);align-items:center}
+.f-bot div{display:flex;gap:1.4rem;flex-wrap:wrap}
+.f-bot a{color:var(--dim);text-decoration:none}.f-bot a:hover{color:#fff}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in,.no-js .rv{opacity:1;transform:none}
+
+@media (max-width:1080px){.clients{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:860px){
+  .nav-links,.nav-cta{display:none}.burger{display:block}
+  .mobile-menu{position:fixed;top:72px;left:0;right:0;background:rgba(7,10,20,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 20px 22px;flex-direction:column;gap:4px;z-index:99}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:.8rem .4rem;color:#d5dbea;text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
+  .mobile-menu .btn{margin-top:12px;border:0}
+}
+@media (max-width:640px){
+  .clients{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .cli{padding:8px 8px 10px;gap:7px;border-radius:14px}.cli span{font-size:.72rem}
+  section{padding:30px 0 0}
+  .hero{padding:120px 0 50px}section{padding:70px 0}
+  .cta{padding:50px 22px;border-radius:24px}
+  .actions .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Ahpu home"><picture><source srcset="../img/ahpu-logo-mark.webp" type="image/webp"><img src="../img/ahpu-logo-mark.png" alt="Ahpu" width="82" height="38"></picture></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#ai">Ahpu AI</a></li>
+      <li><a href="/#accounting">Accounting</a></li>
+      <li><a href="/#payments">Payments</a></li>
+      <li><a href="/clients" class="on">Clients</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/about-us" class="btn btn-glass">About</a>
+      <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Book a demo</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="/">Home</a><a href="/#features">Features</a><a href="/#ai">Ahpu AI</a><a href="/#accounting">Accounting</a><a href="/#payments">Payments</a><a href="/clients">Clients</a><a href="/about-us">About</a><a href="/support">Support</a>
+  <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-main">Chat on WhatsApp</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><span></span><span></span></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Our clients</span>
+    <h1 class="rv" style="--d:.06s">Restaurants that <br><span class="grad-text">run on Ahpu.</span></h1>
+    <p class="rv" style="--d:.12s">From cosy cafes to busy full-service restaurants across Nepal, these teams take orders, print KOTs and close their books with Ahpu every day.</p>
+    <div class="count rv" style="--d:.18s"><b id="cliCount">18</b> restaurants and counting</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="tools rv">
+      <label class="search"><svg class="i"><use href="#i-search"/></svg><input type="search" id="cliSearch" placeholder="Search restaurants" aria-label="Search restaurants" autocomplete="off"></label>
+    </div>
+    <div class="clients" id="clientGrid">
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/blue-square-cafe.webp" alt="Blue Square Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Blue Square Cafe</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/lam-cafe.webp" alt="Lam Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Lam Cafe</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/newa-suli.webp" alt="Newa Suli logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Newa Suli</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/hyderabad-house.webp" alt="Hyderabad House logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Hyderabad House</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/baghdurbar.webp" alt="Baghdurbar logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Baghdurbar</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/gurkhazgrill.webp" alt="Gurkhazgrill logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Gurkhazgrill</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/cafe-the-vitamin.webp" alt="Cafe The Vitamin logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Cafe The Vitamin</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/taza-treats.webp" alt="Taza Treats logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Taza Treats</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/nasa-chhen.webp" alt="Nasa Chhen logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Nasa Chhen</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/the-urban-hub.webp" alt="The Urban Hub logo" width="400" height="400" loading="lazy" decoding="async"></div><span>The Urban Hub</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/polines-garden.webp" alt="Polines Garden logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Polines Garden</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/anjapper-curry-house.webp" alt="Anjapper Curry House logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Anjapper Curry House</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/larrys-fussion.webp" alt="Larry&#x27;s Fussion logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Larry&#x27;s Fussion</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/deoch-an-doris.webp" alt="Deoch An Doris logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Deoch An Doris</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/maasu-chiura.webp" alt="Maasu Chiura logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Maasu Chiura</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/saathi-cafe.webp" alt="Saathi Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Saathi Cafe</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/cfc-dhapakhel.webp" alt="CFC Dhapakhel logo" width="400" height="400" loading="lazy" decoding="async"></div><span>CFC Dhapakhel</span></figure>
+      <figure class="cli"><div class="lg"><img src="../uploads/clients/triangle.webp" alt="Triangle logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Triangle</span></figure>
+    </div>
+    <p class="none" id="cliNone" hidden>No restaurant matches that name.</p>
+  </div>
+</section>
+
+<section style="padding-top:90px">
+  <div class="wrap">
+    <div class="cta rv">
+      <h2>Want your restaurant <br><span class="grad-text">on this list?</span></h2>
+      <p>See Ahpu working with your own menu, tables and printers. It takes about 20 minutes.</p>
+      <div class="actions">
+        <a href="https://wa.me/9779802046069" target="_blank" rel="noopener" class="btn btn-white btn-lg"><svg class="i"><use href="#i-msg"/></svg> Book a free demo</a>
+        <a href="/" class="btn btn-glass btn-lg">Explore features</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap f-bot">
+    <span>&copy; <span id="yr">2025</span> Ahpu Solution Pvt. Ltd. · Lagankhel, Lalitpur, Nepal</span>
+    <div><a href="/">Home</a><a href="/clients">Clients</a><a href="/about-us">About</a><a href="/privacy-policy">Privacy</a><a href="/kds-policy">KDS policy</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document;d.body.classList.remove('no-js');
+  d.getElementById('yr').textContent=new Date().getFullYear();
+  var nav=d.getElementById('nav'),menu=d.getElementById('mobileMenu'),burger=d.getElementById('burger');
+  var onScroll=function(){nav.classList.toggle('scrolled',scrollY>20)};addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var setMenu=function(o){menu.classList.toggle('open',o);nav.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.innerHTML='<svg class="i"><use href="#i-'+(o?'x':'menu')+'"/></svg>'};
+  burger.addEventListener('click',function(){setMenu(!menu.classList.contains('open'))});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  d.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  var grid=d.getElementById('clientGrid'),q=d.getElementById('cliSearch'),none=d.getElementById('cliNone');
+  function filter(){var t=q.value.trim().toLowerCase(),shown=0;
+    [].forEach.call(grid.children,function(c){var hit=!t||c.textContent.toLowerCase().indexOf(t)>-1;c.hidden=!hit;if(hit)shown++});
+    none.hidden=shown>0}
+  q.addEventListener('input',filter);
+  /* live list from data/clients.json (managed in /admin); built-in list stays if it fails */
+  fetch('../data/clients.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
+    if(!list.length)return;
+    var h=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+    grid.innerHTML=list.map(function(c){return '<figure class="cli"><div class="lg"><img src="../'+h(c.logo)+'" alt="'+h(c.name)+' logo" width="400" height="400" loading="lazy" decoding="async"></div><span>'+h(c.name)+'</span></figure>'}).join('');
+    d.getElementById('cliCount').textContent=list.length;filter();
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

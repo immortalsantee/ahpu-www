@@ -10,7 +10,10 @@
 <meta property="og:description" content="POS, KDS, inventory, Fonepay, IRD billing, accounting and Ahpu AI — in one system.">
 <meta property="og:image" content="https://ahpuapp.com/img/ahpu-logo.png">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/favicon.ico">
+<link rel="icon" href="img/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -350,10 +353,14 @@ section{padding:110px 0;position:relative}
 
 /* clients */
 .clients{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.cli{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/2;border:1px solid var(--line);background:var(--bg3)}
-.cli img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:saturate(.85) brightness(.8)}
-.cli:hover img{transform:scale(1.08);filter:saturate(1.1) brightness(.95)}
-.cli span{position:absolute;inset:auto 0 0;padding:28px 12px 10px;font-size:.8rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.cli{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 12px 14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);transition:border-color .3s,transform .3s,background .3s}
+.cli:hover{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.06);transform:translateY(-4px)}
+.cli .lg{width:100%;aspect-ratio:1;border-radius:13px;background:#fff;overflow:hidden}
+.cli img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cli:hover img{transform:scale(1.05)}
+.cli span{font-size:.82rem;font-weight:600;color:#d5dbea;text-align:center;line-height:1.3}
+.all-cli{display:flex;justify-content:center;margin-top:28px}
+.all-cli .btn .i{transition:transform .2s}.all-cli .btn:hover .i{transform:translateX(3px)}
 
 /* CTA */
 .cta{border-radius:32px;padding:80px 40px;text-align:center;position:relative;overflow:hidden;isolation:isolate;border:1px solid var(--line2)}
@@ -426,7 +433,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
   .ird-list{grid-template-columns:1fr}
   .panelx{grid-template-columns:1fr}
   .apps{grid-template-columns:1fr}
-  .clients{grid-template-columns:repeat(2,1fr)}
+  .clients{grid-template-columns:repeat(3,1fr);gap:8px}
+  .cli{padding:8px 8px 10px;gap:7px;border-radius:14px}.cli span{font-size:.72rem}
   .cta{padding:56px 22px;border-radius:24px}
   .f-grid{grid-template-columns:1fr}
   .hero-actions .btn{flex:1 1 100%}
@@ -586,9 +594,9 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
 <!-- CLIENT MARQUEE -->
 <div class="marquee" aria-label="Restaurants using Ahpu">
   <p>Running every day at</p>
-  <div class="mq">
-    <span>Lam Cafe</span><span>Blue Square Cafe</span><span>Newa Suli</span><span>Hyderabad House</span><span>Baghdurbar</span><span>Gurkhazgrill</span><span>Cafe The Vitamin</span><span>Taza Treats</span><span>Nasa Chhen</span><span>The Urban Hub</span><span>Polines Garden</span><span>Anjapper Curry House</span><span>Larry's Fussion</span><span>Deoch An Doris</span><span>Maasu Chiura</span><span>Saathi Cafe</span><span>CFC Dhapakhel</span><span>Triangle</span>
-    <span aria-hidden="true">Lam Cafe</span><span aria-hidden="true">Blue Square Cafe</span><span aria-hidden="true">Newa Suli</span><span aria-hidden="true">Hyderabad House</span><span aria-hidden="true">Baghdurbar</span><span aria-hidden="true">Gurkhazgrill</span><span aria-hidden="true">Cafe The Vitamin</span><span aria-hidden="true">Taza Treats</span><span aria-hidden="true">Nasa Chhen</span><span aria-hidden="true">The Urban Hub</span><span aria-hidden="true">Polines Garden</span><span aria-hidden="true">Anjapper Curry House</span><span aria-hidden="true">Larry's Fussion</span><span aria-hidden="true">Deoch An Doris</span><span aria-hidden="true">Maasu Chiura</span><span aria-hidden="true">Saathi Cafe</span><span aria-hidden="true">CFC Dhapakhel</span><span aria-hidden="true">Triangle</span>
+  <div class="mq" id="clientMq">
+    <span>Lam Cafe</span><span>Blue Square Cafe</span><span>Newa Suli</span><span>Hyderabad House</span><span>Baghdurbar</span><span>Gurkhazgrill</span><span>Cafe The Vitamin</span><span>Taza Treats</span><span>Nasa Chhen</span><span>The Urban Hub</span><span>Polines Garden</span><span>Anjapper Curry House</span><span>Larry&#x27;s Fussion</span><span>Deoch An Doris</span><span>Maasu Chiura</span><span>Saathi Cafe</span><span>CFC Dhapakhel</span><span>Triangle</span>
+    <span aria-hidden="true">Lam Cafe</span><span aria-hidden="true">Blue Square Cafe</span><span aria-hidden="true">Newa Suli</span><span aria-hidden="true">Hyderabad House</span><span aria-hidden="true">Baghdurbar</span><span aria-hidden="true">Gurkhazgrill</span><span aria-hidden="true">Cafe The Vitamin</span><span aria-hidden="true">Taza Treats</span><span aria-hidden="true">Nasa Chhen</span><span aria-hidden="true">The Urban Hub</span><span aria-hidden="true">Polines Garden</span><span aria-hidden="true">Anjapper Curry House</span><span aria-hidden="true">Larry&#x27;s Fussion</span><span aria-hidden="true">Deoch An Doris</span><span aria-hidden="true">Maasu Chiura</span><span aria-hidden="true">Saathi Cafe</span><span aria-hidden="true">CFC Dhapakhel</span><span aria-hidden="true">Triangle</span>
   </div>
 </div>
 
@@ -963,26 +971,27 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
       <h2 class="h2">Trusted by restaurants <br>across Nepal.</h2>
       <p class="lead">From cosy cafes to busy full-service restaurants, Ahpu runs service every day.</p>
     </div>
-    <div class="clients">
-      <figure class="cli rv"><img src="img/clients/06.webp" alt="Lam Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Lam Cafe</span></figure>
-      <figure class="cli rv"><img src="img/clients/01.webp" alt="Blue Square Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Blue Square Cafe</span></figure>
-      <figure class="cli rv"><img src="img/clients/02.webp" alt="Newa Suli" width="480" height="320" loading="lazy" decoding="async"><span>Newa Suli</span></figure>
-      <figure class="cli rv"><img src="img/clients/07.webp" alt="Hyderabad House" width="480" height="320" loading="lazy" decoding="async"><span>Hyderabad House</span></figure>
-      <figure class="cli rv"><img src="img/clients/08.webp" alt="Baghdurbar" width="480" height="320" loading="lazy" decoding="async"><span>Baghdurbar</span></figure>
-      <figure class="cli rv"><img src="img/clients/09.webp" alt="Gurkhazgrill" width="480" height="320" loading="lazy" decoding="async"><span>Gurkhazgrill</span></figure>
-      <figure class="cli rv"><img src="img/clients/091.webp" alt="Cafe The Vitamin" width="480" height="320" loading="lazy" decoding="async"><span>Cafe The Vitamin</span></figure>
-      <figure class="cli rv"><img src="img/clients/10.webp" alt="Taza Treats" width="480" height="320" loading="lazy" decoding="async"><span>Taza Treats</span></figure>
-      <figure class="cli rv"><img src="img/clients/11.webp" alt="Nasa Chhen" width="480" height="320" loading="lazy" decoding="async"><span>Nasa Chhen</span></figure>
-      <figure class="cli rv"><img src="img/clients/12.webp" alt="The Urban Hub" width="480" height="320" loading="lazy" decoding="async"><span>The Urban Hub</span></figure>
-      <figure class="cli rv"><img src="img/clients/13.webp" alt="Polines Garden" width="480" height="320" loading="lazy" decoding="async"><span>Polines Garden</span></figure>
-      <figure class="cli rv"><img src="img/clients/14.webp" alt="Anjapper Curry House" width="480" height="320" loading="lazy" decoding="async"><span>Anjapper Curry House</span></figure>
-      <figure class="cli rv"><img src="img/clients/15.webp" alt="Larry's Fussion" width="480" height="320" loading="lazy" decoding="async"><span>Larry's Fussion</span></figure>
-      <figure class="cli rv"><img src="img/clients/16.webp" alt="Deoch An Doris" width="480" height="320" loading="lazy" decoding="async"><span>Deoch An Doris</span></figure>
-      <figure class="cli rv"><img src="img/clients/17.webp" alt="Maasu Chiura" width="480" height="320" loading="lazy" decoding="async"><span>Maasu Chiura</span></figure>
-      <figure class="cli rv"><img src="img/clients/18.webp" alt="Saathi Cafe" width="480" height="320" loading="lazy" decoding="async"><span>Saathi Cafe</span></figure>
-      <figure class="cli rv"><img src="img/clients/19.webp" alt="CFC Dhapakhel" width="480" height="320" loading="lazy" decoding="async"><span>CFC Dhapakhel</span></figure>
-      <figure class="cli rv"><img src="img/clients/03.webp" alt="Triangle" width="480" height="320" loading="lazy" decoding="async"><span>Triangle</span></figure>
+    <div class="clients" id="clientGrid">
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/lam-cafe.webp" alt="Lam Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Lam Cafe</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/blue-square-cafe.webp" alt="Blue Square Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Blue Square Cafe</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/newa-suli.webp" alt="Newa Suli logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Newa Suli</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/hyderabad-house.webp" alt="Hyderabad House logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Hyderabad House</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/baghdurbar.webp" alt="Baghdurbar logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Baghdurbar</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/gurkhazgrill.webp" alt="Gurkhazgrill logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Gurkhazgrill</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/cafe-the-vitamin.webp" alt="Cafe The Vitamin logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Cafe The Vitamin</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/taza-treats.webp" alt="Taza Treats logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Taza Treats</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/nasa-chhen.webp" alt="Nasa Chhen logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Nasa Chhen</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/the-urban-hub.webp" alt="The Urban Hub logo" width="400" height="400" loading="lazy" decoding="async"></div><span>The Urban Hub</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/polines-garden.webp" alt="Polines Garden logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Polines Garden</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/anjapper-curry-house.webp" alt="Anjapper Curry House logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Anjapper Curry House</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/larrys-fussion.webp" alt="Larry&#x27;s Fussion logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Larry&#x27;s Fussion</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/deoch-an-doris.webp" alt="Deoch An Doris logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Deoch An Doris</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/maasu-chiura.webp" alt="Maasu Chiura logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Maasu Chiura</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/saathi-cafe.webp" alt="Saathi Cafe logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Saathi Cafe</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/cfc-dhapakhel.webp" alt="CFC Dhapakhel logo" width="400" height="400" loading="lazy" decoding="async"></div><span>CFC Dhapakhel</span></figure>
+      <figure class="cli rv"><div class="lg"><img src="uploads/clients/triangle.webp" alt="Triangle logo" width="400" height="400" loading="lazy" decoding="async"></div><span>Triangle</span></figure>
     </div>
+    <div class="all-cli rv"><a href="/clients" class="btn btn-glass">View all <span id="cliTotal">18</span> clients <svg class="i"><use href="#i-arrow"/></svg></a></div>
   </div>
 </section>
 
@@ -1020,7 +1029,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
         <li><a href="#features">Waiter app</a></li><li><a href="/kds-policy">KDS app</a></li><li><a href="#ai">Ahpu mobile</a></li><li><a href="#payments">Customer display</a></li>
       </ul></div>
       <div class="f-col"><h5>Company</h5><ul>
-        <li><a href="/about-us">About us</a></li><li><a href="/support">Support</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/kds-policy">KDS policy</a></li><li><a href="mailto:info@ahpuapp.com">Contact</a></li>
+        <li><a href="/clients">Our clients</a></li><li><a href="/about-us">About us</a></li><li><a href="/support">Support</a></li><li><a href="/privacy-policy">Privacy policy</a></li><li><a href="/kds-policy">KDS policy</a></li><li><a href="mailto:info@ahpuapp.com">Contact</a></li>
       </ul></div>
     </div>
     <div class="f-bot">
@@ -1151,6 +1160,17 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
     qTimers.push(setTimeout(qrCycle,6800));}
   if(reduce){qc.classList.add('done');steps.forEach(function(s){s.classList.add('on')})}
   else whenVisible(qc,qrCycle,function(){qTimers.forEach(clearTimeout);qTimers=[]});
+
+  /* clients: live list from data/clients.json (managed in /admin); built-in list stays if it fails */
+  fetch('data/clients.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
+    if(!list.length)return;
+    $('#cliTotal').textContent=list.length;list=list.slice(0,20);
+    var h=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+    $('#clientGrid').innerHTML=list.map(function(c){return '<figure class="cli rv in"><div class="lg"><img src="'+h(c.logo)+'" alt="'+h(c.name)+' logo" width="400" height="400" loading="lazy" decoding="async"></div><span>'+h(c.name)+'</span></figure>'}).join('');
+    var n=list.map(function(c){return '<span>'+h(c.name)+'</span>'}).join(''), a=list.map(function(c){return '<span aria-hidden="true">'+h(c.name)+'</span>'}).join('');
+    var mq=$('#clientMq');mq.innerHTML=n+a;mq.style.animationDuration=Math.max(20,list.length*2.2)+'s';
+  }).catch(function(){});
 })();
 </script>
 </body>

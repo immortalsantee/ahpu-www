@@ -1,0 +1,7 @@
+Options -Indexes
+<IfModule mod_headers.c>
+  <Files "clients.json">
+    Header set Cache-Control "no-cache"
+    Header set X-Content-Type-Options "nosniff"
+  </Files>
+</IfModule>
