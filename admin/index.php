@@ -211,6 +211,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     save_clients($DATA, $clients);
                     flash('"' . $clients[$i]['name'] . '" saved.');
                     break;
+                case 'toggle':
+                    $i = find_index($clients, (string)($_POST['id'] ?? ''));
+                    $hide = empty($clients[$i]['hidden']);
+                    if ($hide) $clients[$i]['hidden'] = true; else unset($clients[$i]['hidden']);
+                    save_clients($DATA, $clients);
+                    flash('"' . $clients[$i]['name'] . '" is now ' . ($hide ? 'hidden from the website.' : 'shown on the website.'));
+                    break;
                 case 'delete':
                     $i = find_index($clients, (string)($_POST['id'] ?? ''));
                     $gone = $clients[$i];
@@ -251,6 +258,7 @@ $flash = $_SESSION['flash'] ?? null; unset($_SESSION['flash']);
 $mode = empty($auth['hash']) ? 'setup' : (empty($_SESSION['ok']) ? 'login' : 'app');
 $clients = $mode === 'app' ? load_clients($DATA) : [];
 $csrf = e($_SESSION['csrf']);
+$hiddenCount = count(array_filter($clients, fn($c) => !empty($c['hidden'])));
 $tab = (string)($_GET['tab'] ?? 'clients');
 if (!isset(TABS[$tab])) $tab = 'clients';
 $maxBytes = $cfg['max_upload_mb'] * 1024 * 1024;
@@ -312,7 +320,10 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
 .name{font-weight:600;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pos{font-size:.75rem;color:var(--dim);display:flex;align-items:center;gap:8px}
 .pos .home{font-style:normal;font-size:.68rem;font-weight:600;color:#a7f3d0;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:999px;padding:.05rem .5rem}
-.pos .home[hidden]{display:none}
+.pos .home[hidden],.pos .off-tag[hidden]{display:none}
+.pos .off-tag{font-style:normal;font-size:.68rem;font-weight:600;color:#fde68a;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);border-radius:999px;padding:.05rem .5rem}
+.row.off .thumb,.row.off .name{opacity:.45}
+.row.off .name{text-decoration:line-through;text-decoration-color:rgba(255,255,255,.35)}
 .head p a{color:#c4b5fd}
 .acts{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .mv{display:flex;flex-direction:column;gap:2px}
@@ -426,7 +437,7 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
 
   <?php if ($tab === 'clients'): ?>
   <div class="head">
-    <div><h1>Clients</h1><p><?= count($clients) ?> restaurants. The top <?= HOME_LIMIT ?> show on the home page; all of them show on <a href="../clients/" target="_blank" rel="noopener">Our clients</a>. Drag to change the order.</p></div>
+    <div><h1>Clients</h1><p><?= count($clients) ?> restaurants<?= $hiddenCount ? ' (' . $hiddenCount . ' hidden)' : '' ?>. The top <?= HOME_LIMIT ?> shown ones appear on the home page; all shown ones appear on <a href="../clients/" target="_blank" rel="noopener">Our clients</a>. Hide a client to take it off the website without deleting it. Drag to change the order.</p></div>
     <a class="btn btn-main" href="?tab=add">+ Add client</a>
   </div>
 
@@ -434,15 +445,19 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
     <div class="empty">No clients yet. <a href="?tab=add">Add the first one</a>.</div>
   <?php else: ?>
   <div class="list" id="list">
-    <?php foreach ($clients as $i => $c): $id = e((string)$c['id']); ?>
-    <div class="row" draggable="true" data-id="<?= $id ?>">
+    <?php $shown = 0; foreach ($clients as $i => $c): $id = e((string)$c['id']); $off = !empty($c['hidden']); $onHome = !$off && $shown++ < HOME_LIMIT; ?>
+    <div class="row<?= $off ? ' off' : '' ?>" draggable="true" data-id="<?= $id ?>"<?= $off ? ' data-off' : '' ?>>
       <div class="handle" title="Drag to reorder">⋮⋮</div>
       <img class="thumb" src="../<?= e((string)$c['logo']) ?>" alt="" loading="lazy">
-      <div><div class="name"><?= e((string)$c['name']) ?></div><div class="pos"><span>#<span class="n"><?= $i + 1 ?></span></span> <em class="home"<?= $i < HOME_LIMIT ? '' : ' hidden' ?>>On home page</em></div></div>
+      <div><div class="name"><?= e((string)$c['name']) ?></div><div class="pos"><span>#<span class="n"><?= $i + 1 ?></span></span> <em class="home"<?= $onHome ? '' : ' hidden' ?>>On home page</em><em class="off-tag"<?= $off ? '' : ' hidden' ?>>Hidden</em></div></div>
       <div class="acts">
         <div class="mv"><button type="button" data-mv="-1" aria-label="Move up">▲</button><button type="button" data-mv="1" aria-label="Move down">▼</button></div>
         <button type="button" class="btn btn-sm" data-edit>Edit</button>
-        <form method="post" data-confirm="Remove <?= e((string)$c['name']) ?> from the website?">
+        <form method="post">
+          <input type="hidden" name="csrf" value="<?= $csrf ?>"><input type="hidden" name="act" value="toggle"><input type="hidden" name="id" value="<?= $id ?>">
+          <button class="btn btn-sm" title="<?= $off ? 'Show on the website again' : 'Hide from the website (keeps it here)' ?>"><?= $off ? 'Show' : 'Hide' ?></button>
+        </form>
+        <form method="post" data-confirm="Delete <?= e((string)$c['name']) ?> and its logo for good? (Use Hide to just take it off the website.)">
           <input type="hidden" name="csrf" value="<?= $csrf ?>"><input type="hidden" name="act" value="delete"><input type="hidden" name="id" value="<?= $id ?>">
           <button class="btn btn-sm btn-danger">Delete</button>
         </form>
@@ -501,7 +516,7 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
   document.querySelectorAll('[data-edit]').forEach(function(b){b.addEventListener('click',function(){var r=b.closest('.row');r.classList.toggle('editing');b.textContent=r.classList.contains('editing')?'Close':'Edit'})});
   document.querySelectorAll('.edit input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var l=inp.parentNode;l.firstChild.textContent=inp.files[0]?'✓ '+inp.files[0].name.slice(0,18):'Replace logo'})});
   if(!list)return;
-  function changed(){var ids=[].map.call(list.children,function(r,i){r.querySelector('.n').textContent=i+1;r.querySelector('.home').hidden=i>=<?= HOME_LIMIT ?>;return r.dataset.id});order.value=ids.join(',');bar.classList.add('show')}
+  function changed(){var shown=0,ids=[].map.call(list.children,function(r,i){r.querySelector('.n').textContent=i+1;r.querySelector('.home').hidden=r.hasAttribute('data-off')||shown++>=<?= HOME_LIMIT ?>;return r.dataset.id});order.value=ids.join(',');bar.classList.add('show')}
   // drag and drop (mouse)
   var drag=null;
   list.addEventListener('dragstart',function(e){drag=e.target.closest('.row');if(!drag)return;drag.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',drag.dataset.id)});

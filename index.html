@@ -1163,7 +1163,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;margin-top:110px}
 
   /* clients: live list from data/clients.json (managed in /admin); built-in list stays if it fails */
   fetch('data/clients.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(j){
-    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
+    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&!c.hidden&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
     if(!list.length)return;
     $('#cliTotal').textContent=list.length;list=list.slice(0,20);
     var h=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};

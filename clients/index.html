@@ -221,7 +221,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 30px;margin-top:90px}
   q.addEventListener('input',filter);
   /* live list from data/clients.json (managed in /admin); built-in list stays if it fails */
   fetch('../data/clients.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(j){
-    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
+    var list=j&&Array.isArray(j.clients)?j.clients.filter(function(c){return c&&c.name&&!c.hidden&&/^uploads\/clients\/[a-z0-9-]+\.webp$/.test(c.logo)}):[];
     if(!list.length)return;
     var h=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
     grid.innerHTML=list.map(function(c){return '<figure class="cli"><div class="lg"><img src="../'+h(c.logo)+'" alt="'+h(c.name)+' logo" width="400" height="400" loading="lazy" decoding="async"></div><span>'+h(c.name)+'</span></figure>'}).join('');
