@@ -16,7 +16,7 @@ $AUTH   = $PRIV . '/auth.php';
 $TRIES  = $PRIV . '/attempts.php';
 
 $cfg = is_file($PRIV . '/config.php') ? (include $PRIV . '/config.php') : [];
-$cfg += ['setup_key' => '', 'session_minutes' => 30, 'max_attempts' => 5, 'lock_minutes' => 15, 'max_upload_mb' => 5, 'logo_size' => 400];
+$cfg += ['admin_email' => 'admin@ahpuapp.com', 'setup_key' => '', 'session_minutes' => 30, 'max_attempts' => 5, 'lock_minutes' => 15, 'max_upload_mb' => 5, 'logo_size' => 400];
 
 /* ---------- transport & headers ---------- */
 $host    = $_SERVER['HTTP_HOST'] ?? '';
@@ -176,7 +176,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flash('Password created. You are signed in.');
         } elseif ($act === 'login') {
             if ($wait = locked_for($TRIES, $cfg)) throw new RuntimeException('Too many wrong passwords. Try again in ' . ceil($wait / 60) . ' min.');
-            if (empty($auth['hash']) || !password_verify((string)($_POST['pw'] ?? ''), $auth['hash'])) { record_fail($TRIES, $cfg); throw new RuntimeException('Wrong password.'); }
+            $emailOk = hash_equals(strtolower(trim((string)$cfg['admin_email'])), strtolower(trim((string)($_POST['email'] ?? ''))));
+            $pwOk = !empty($auth['hash']) && password_verify((string)($_POST['pw'] ?? ''), $auth['hash']);
+            if (!$emailOk || !$pwOk) { record_fail($TRIES, $cfg); throw new RuntimeException('Wrong email or password.'); }
             clear_fails($TRIES, $cfg);
             if (password_needs_rehash($auth['hash'], PASSWORD_DEFAULT)) save_php($AUTH, ['hash' => password_hash((string)$_POST['pw'], PASSWORD_DEFAULT), 'set' => gmdate('c')]);
             session_regenerate_id(true);
@@ -279,7 +281,7 @@ h1,h2{font-family:'Sora',sans-serif;letter-spacing:-.02em;color:#fff}
 .btn-danger{color:var(--red);border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.06)}
 .btn-danger:hover{background:rgba(248,113,113,.15)}
 .btn-sm{padding:.45rem .7rem;font-size:.8rem;border-radius:9px}
-input[type=text],input[type=password]{width:100%;font:inherit;font-size:.95rem;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:11px;padding:.7rem .85rem;outline:none;transition:border-color .2s,box-shadow .2s}
+input[type=text],input[type=password],input[type=email]{width:100%;font:inherit;font-size:.95rem;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:11px;padding:.7rem .85rem;outline:none;transition:border-color .2s,box-shadow .2s}
 input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.25)}
 label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
 .field{margin-bottom:14px}
@@ -380,6 +382,7 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
       <p>First-time setup. Enter the setup key from <b>private/config.php</b> and choose a password.</p>
       <form method="post" autocomplete="off">
         <input type="hidden" name="csrf" value="<?= $csrf ?>"><input type="hidden" name="act" value="setup">
+        <input type="email" name="username" value="<?= e((string)$cfg['admin_email']) ?>" autocomplete="username" readonly hidden>
         <div class="field"><label for="key">Setup key</label><input type="password" id="key" name="key" required></div>
         <div class="field"><label for="pw">New password (10+ characters)</label><input type="password" id="pw" name="pw" minlength="10" required autocomplete="new-password"></div>
         <div class="field"><label for="pw2">Repeat password</label><input type="password" id="pw2" name="pw2" minlength="10" required autocomplete="new-password"></div>
@@ -390,6 +393,7 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
       <p>Website admin · client logos</p>
       <form method="post">
         <input type="hidden" name="csrf" value="<?= $csrf ?>"><input type="hidden" name="act" value="login">
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" value="<?= e((string)$cfg['admin_email']) ?>" required autocomplete="username" spellcheck="false" autocapitalize="off"></div>
         <div class="field"><label for="pw">Password</label><input type="password" id="pw" name="pw" required autofocus autocomplete="current-password"></div>
         <button class="btn btn-main">Sign in</button>
       </form>
@@ -477,6 +481,7 @@ label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 .35rem}
   <div class="head"><div><h1>Change password</h1><p>Use at least 10 characters. You stay signed in on this device.</p></div></div>
   <form class="card narrow" method="post" autocomplete="off">
     <input type="hidden" name="csrf" value="<?= $csrf ?>"><input type="hidden" name="act" value="password">
+    <input type="email" name="username" value="<?= e((string)$cfg['admin_email']) ?>" autocomplete="username" readonly hidden>
     <div class="field"><label for="cur">Current password</label><input type="password" id="cur" name="cur" required autocomplete="current-password"></div>
     <div class="field"><label for="npw">New password (10+ characters)</label><input type="password" id="npw" name="pw" minlength="10" required autocomplete="new-password"></div>
     <div class="field"><label for="npw2">Repeat new password</label><input type="password" id="npw2" name="pw2" minlength="10" required autocomplete="new-password"></div>

@@ -3,6 +3,7 @@
 // SETUP_KEY is only used once, to create the first admin password at /admin.
 // After the password is set, setup is disabled automatically. You may blank it then.
 return [
+    'admin_email'      => 'admin@ahpuapp.com', // sign-in email (lets browsers save the login)
     'setup_key'        => 'PUT-A-LONG-RANDOM-STRING-HERE',
     'session_minutes'  => 30,   // auto sign-out after this many idle minutes
     'max_attempts'     => 5,    // wrong passwords allowed per IP ...
